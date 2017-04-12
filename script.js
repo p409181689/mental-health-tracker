@@ -18,7 +18,12 @@ $(document).ready(function(){
 		
     });
 });
-
+$(document).ready(function() {
+$('#now').click(function() {
+       var now = new Date();
+       $('#date').val(now.toDateString());
+ });
+});
 
 
 
