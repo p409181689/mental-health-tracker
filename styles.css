@@ -1,8 +1,14 @@
 body {
 	background-color: rgb(195,225,229);
-	
+	text-align:center;
 }
 
 .inputText {
 	color: rgb(123,140,157);
+}
+
+#mainbox {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 }
