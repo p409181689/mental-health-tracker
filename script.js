@@ -7,7 +7,9 @@ $(document).ready(function(){
 		var userName = "Maryla";
  		var password= "Rodowicz1";
 		if (values[0]==userName && values[1]==password) {
-			window.location.href = "timestamp.html";
+			//alert(values);
+			//window.location.href="timestamp.html";
+			onclick="location.href='timestamp.html';"
 		}
 		else {
 			alert("Try again");
