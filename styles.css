@@ -5,6 +5,10 @@ body {
 
 .inputText {
 	color: rgb(123,140,157);
+
+}
+button {
+	margin-left: auto;
 }
 
 #mainbox {
