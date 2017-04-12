@@ -1,18 +1,37 @@
-$( "#userName" ).on( "blur", function() {
-  $( this ).val(function( i, name ) {
-    userInputName=name;
-  });
+$(document).ready(function(){
+    $("button").click(function(){
+        var values = [];
+		$("input[name='text']").each(function() {
+		    values.push($(this).val());
+		});
+
+		alert(values);
+    });
 });
- 	var userName = "Maryla";
-	var password= "Rodowicz1";
-
-if(userInputName==userName && userInputPswd== password) {
-	console.log("ok!")
-} else {
-	console.log("oops!")
-}
 
 
+//var article_id = $(this).closest('form').find('input[name="article_id"]').val();
+
+// $("button").on("click", function() {
+// 	var userInputName=$("#username").val();
+// 	var userInputPswd=$("#password").val();
+// 	console.log(userInputName);
+// 	console.log(userInputPswd);
+// 	var userName = "Maryla";
+// 		var password= "Rodowicz1";
+
+// 	if(userInputName==userName && userInputPswd== password) {
+// 		console.log("ok!")
+// 	} else {
+// 		console.log("oops!")
+// 	}
+
+// })
 
 
-
+// $( "#username" ).on( "blur", function() {
+//   $( this ).val(function( i, val ) {
+//     console.log(val);
+//   });
+//   console.log(val);
+// });
