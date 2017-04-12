@@ -1,6 +1,8 @@
- $(document).ready(function(){
- 	var userInputName= $("#userName");
- 	var userInputPswd= $("")
+$( "#userName" ).on( "blur", function() {
+  $( this ).val(function( i, name ) {
+    userInputName=name;
+  });
+});
  	var userName = "Maryla";
 	var password= "Rodowicz1";
 
@@ -9,7 +11,6 @@ if(userInputName==userName && userInputPswd== password) {
 } else {
 	console.log("oops!")
 }
- }) 
 
 
 
