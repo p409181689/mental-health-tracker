@@ -19,21 +19,23 @@ $(document).ready(function(){
     });
 });
 $(document).ready(function() {
-$('#now').click(function() {
-       var now = new Date();
-       $('#date').val(now.toDateString());
- });
+	$('#now').click(function() {
+	       var now = new Date();
+	       $('#date').val(now.toDateString());
+	 });
 
-$('#btn1').click(function() {	
-$.fn.noText = function() {/*use the jquery prototype technology to make a chainable clear field method*/
-    if(this.is('input')){ /*check to c if you the element type is an input*/
-        this.val('');/*clear the input field*/
-    }return this;/*means it is chainable*/
-};
-$('input').noText();
-});
-});
+	$('select').click(function() {
+		var time = $('option:selected').text();
+		
+	});
 
+	$('#btn1').click(function() {	
+		$('form').trigger("reset");
+
+	
+	});
+});
+$( "#date" ).datepicker();
 
 
  
