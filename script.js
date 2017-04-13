@@ -62,6 +62,7 @@ $(document).ready(function() {
 	       var value= $('#date').val(month + "/"  + day + "/"+ year);
 	       nowDate=value;
 
+
 	 });
 	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
@@ -137,12 +138,14 @@ $(document).ready(function() {
     	eventArray.push(event1);
     	
     	console.log(eventArray[0].location);
+    	alert(eventArray[0]);
     	
     	//var event1= new Event(value, time, emotionArray, loc, env, comp, inter, exter, noted);
 
     })
     //if(window.location === "view.html") {
-    	$('#view-time').append("<p>"+nowTime+"</p>");
+    	$('#view-time').append("<p>" +nowTime+"</p>");
+    	$('#view-date').append("<p>" +eventArray[0].environment+"</p>");
     //}
     
 //     var wrapper = $('#wrapper'), container;
