@@ -22,7 +22,7 @@ var nowEmotions=[];
 var eventArray=[];
 
 var Event = function(location, environment, company, internal, external, notes) {
-	this.time=time;
+	
 	this.location=location;
 	this.environment=environment;
 	this.company=company;
@@ -133,15 +133,26 @@ $(document).ready(function() {
     	//nowNotes=noted;
     	//alert(noted);
     	
-    	var event1= new Event(nowDate, nowTime,nowEmotions, loc, env, comp, inter, exter, noted);
+    	var event1= new Event(loc, env, comp, inter, exter, noted);
     	eventArray.push(event1);
     	
-    	//console.log(eventArray);
+    	console.log(eventArray[0].location);
     	
     	//var event1= new Event(value, time, emotionArray, loc, env, comp, inter, exter, noted);
 
     })
-
+    //if(window.location === "view.html") {
+    	$('#view-time').append("<p>"+nowTime+"</p>");
+    //}
+    
+//     var wrapper = $('#wrapper'), container;
+// 	for (var key in grocery_list){
+//     container = $('<div id="grocery_item" class="container"></div>');
+//     wrapper.append(container);
+//     container.append('<div class="item">' + key +'</div>');
+//     container.append('<div class="category">' + grocery_list[key].category +'</div>');
+//     container.append('<div class="price">' + grocery_list[key].price +'</div>');
+// }
 });
 
 
