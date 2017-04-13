@@ -80,8 +80,21 @@ $(document).ready(function() {
 		return emotionArray;
     }); 
 
+    
+
 });
 
+var Event = function(date, time, emotions, location, environment, company, internal, external, notes) {
+	this.date=date;
+	this.time=time;
+	this.emotions=emotions;
+	this.location=location;
+	this.environment=environment;
+	this.company=company;
+	this.internal = internal;
+	this.external=external;
+	this.notes=notes;
+}
 
-
+var event1= new Event(value, time, emotionArray)
  
