@@ -69,10 +69,11 @@ $(document).ready(function() {
 
 	$('#emotion-submit').click(function() { 
         var emotionArray=[];
-        $(".emotion-buttons").each(function() {
+        $(".emotion-picked").each(function() {
 		    emotionArray.push($(this).val());
 		});
 		alert(emotionArray); 
+		return emotionArray;
     }); 
 
 });
