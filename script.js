@@ -7,9 +7,9 @@ $(document).ready(function(){
 		var userName = "Maryla";
  		var password= "Rodowicz1";
 		if (values[0]==userName && values[1]==password) {
-			//alert(values);
-			//window.location.href="timestamp.html";
-			onclick="location.href='timestamp.html';"
+			alert("success");
+			window.location.href='timestamp.html';
+			
 		}
 		else {
 			alert("Try again");
@@ -20,8 +20,12 @@ $(document).ready(function(){
 });
 $(document).ready(function() {
 	$('#now').click(function() {
-	       var now = new Date();
-	       $('#date').val(now.toDateString());
+	        var now = new Date();
+	        var month = now.getMonth()+1;
+	        var day = now.getDate();
+	        var year = now.getUTCFullYear();
+
+	        $('#date').val(month + "/"  + day + "/"+ year);
 	 });
 
 	$('select').click(function() {
