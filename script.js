@@ -59,14 +59,18 @@ $(document).ready(function() {
 
 	$('.clear-button').click(function() {	
 		$('form').trigger("reset");
-
 	
 	});
+	
+
 	$('.emotion-buttons').on('click',function(){
      $(this).addClass('emotion-picked');
 });
 
-
+	$('.clear-button2').click(function() {	
+		$('.emotion-buttons').trigger("reset");
+	
+	});
 	$('#emotion-submit').click(function() { 
         var emotionArray=[];
         $(".emotion-picked").each(function() {
