@@ -12,7 +12,7 @@ $(document).ready(function(){
 			
 		}
 		else {
-			alert("Try again");
+			alert("Something went wrong, try again");
 		}
 
 		
@@ -25,11 +25,33 @@ $(document).ready(function() {
 	        var day = now.getDate();
 	        var year = now.getUTCFullYear();
 
-	        $('#date').val(month + "/"  + day + "/"+ year);
-	 });
+	       var value= $('#date').val(month + "/"  + day + "/"+ year);
+	       return value;
 
+	 });
+	$('input').click(function() {
+		var value = $( "#date" ).datepicker();
+		//return value;
+		
+
+	});
+	$('input').blur(function() {
+		var stringval = $("date").val();
+			var testdate;
+
+			try {
+			  testdate = $.datepicker.parseDate('mm/dd/yy', stringval);
+			             // Notice 'yy' indicates a 4-digit year value
+			} catch (e)
+			{
+			 alert(stringval + ' is not valid.  Format must be MM/DD/YYYY ' +
+			       'and the date value must be valid for the calendar.') ;
+			}
+		});
+	
 	$('select').click(function() {
 		var time = $('option:selected').text();
+		return time;
 		
 	});
 
@@ -38,8 +60,9 @@ $(document).ready(function() {
 
 	
 	});
+
 });
-$( "#date" ).datepicker();
+
 
 
  
