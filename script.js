@@ -62,6 +62,10 @@ $(document).ready(function() {
 
 	
 	});
+	$('.emotion-buttons').on('click',function(){
+     $(this).addClass('emotion-picked');
+});
+
 
 	$('#emotion-submit').click(function() { 
         var emotionArray=[];
