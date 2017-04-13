@@ -4,8 +4,16 @@ $(document).ready(function(){
 		$("input").each(function() {
 		    values.push($(this).val());
 		});
+		// var getUserName= function(){
+		// 	this.
+		// }
+		// var login=$('#username input').val();
+		// console.log(login);
+		// var pswd= $('#password input').val();
+		// console.log(pswd);
 		var userName = "Maryla";
  		var password= "Rodowicz1";
+
 		if (values[0]==userName && values[1]==password) {
 			alert("success");
 			window.location.href='timestamp.html';
@@ -29,25 +37,25 @@ $(document).ready(function() {
 	       return value;
 
 	 });
-	$('input').click(function() {
+	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
 		//return value;
 		
 
 	});
-	$('input').blur(function() {
-		var stringval = $("date").val();
-			var testdate;
+	// $('#date input').blur(function() {
+	// 	var stringval = $("date").val();
+	// 		var testdate;
 
-			try {
-			  testdate = $.datepicker.parseDate('mm/dd/yy', stringval);
-			             // Notice 'yy' indicates a 4-digit year value
-			} catch (e)
-			{
-			 alert(stringval + ' is not valid.  Format must be MM/DD/YYYY ' +
-			       'and the date value must be valid for the calendar.') ;
-			}
-		});
+	// 		try {
+	// 		  testdate = $.datepicker.parseDate('mm/dd/yy', stringval);
+	// 		             // Notice 'yy' indicates a 4-digit year value
+	// 		} catch (e)
+	// 		{
+	// 		 alert(stringval + ' is not valid.  Format must be MM/DD/YYYY ' +
+	// 		       'and the date value must be valid for the calendar.') ;
+	// 		}
+	// 	});
 	
 	$('select').click(function() {
 		var time = $('option:selected').text();
