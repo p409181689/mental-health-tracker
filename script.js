@@ -4,13 +4,7 @@ $(document).ready(function(){
 		$("input").each(function() {
 		    values.push($(this).val());
 		});
-		// var getUserName= function(){
-		// 	this.
-		// }
-		// var login=$('#username input').val();
-		// console.log(login);
-		// var pswd= $('#password input').val();
-		// console.log(pswd);
+		
 		var userName = "Maryla";
  		var password= "Rodowicz1";
 
@@ -63,11 +57,19 @@ $(document).ready(function() {
 		
 	});
 
-	$('#btn1').click(function() {	
+	$('.clear-button').click(function() {	
 		$('form').trigger("reset");
 
 	
 	});
+
+	$('#emotion-submit').click(function() { 
+        var emotionArray=[];
+        $(".emotion-buttons").each(function() {
+		    emotionArray.push($(this).val());
+		});
+		alert(emotionArray); 
+    }); 
 
 });
 
