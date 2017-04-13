@@ -9,15 +9,16 @@
 // 	this.external=external;
 // 	this.notes=notes;
 // }
-var nowTime;
-var nowDate;
-var nowEmotions=[];
 // var nowLoc;
 // var nowEnv;
 // var nowComp;
 // var nowInternal;
 // var nowExternal;
 // var nowNotes;
+var nowTime;
+var nowDate;
+var nowEmotions=[];
+
 var eventArray=[];
 
 var Event = function(location, environment, company, internal, external, notes) {
