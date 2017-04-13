@@ -143,10 +143,11 @@ $(document).ready(function() {
     	//var event1= new Event(value, time, emotionArray, loc, env, comp, inter, exter, noted);
 
     })
-    //if(window.location === "view.html") {
+    if(window.location === "view.html") {
     	$('#view-time').append("<p>" +nowTime+"</p>");
     	$('#view-date').append("<p>" +eventArray[0].environment+"</p>");
-    //}
+    	console.log(eventArray[0].loc)
+    }
     
 //     var wrapper = $('#wrapper'), container;
 // 	for (var key in grocery_list){
