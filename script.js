@@ -137,10 +137,11 @@ $(document).ready(function() {
     	function emotionDisplayer() {
     		emotionDisplay = localStorage.getItem('emotions').split(',');
     		//emotionDisplay=emotionDisplay.split(',');
+    		$('#displayEmotions').html("<p> You felt: " + emotionDisplay + "<p>")
     		console.log(emotionDisplay);
-    		for(key in emotionDisplay) {
-    			$('#displayEmotions').html("<p> You felt: " + emotionDisplay[key] + "<p>");
-    		}
+    		// for(i=0; i<emotionDisplay.length; i++) {
+    		// 	$('#displayEmotions').html("<p> You felt: " + emotionDisplay[i] + "<p>");
+    		// }
     	}
     	 function eventDisplayer() {
     		displayObject = localStorage.getItem('events');
@@ -149,6 +150,9 @@ $(document).ready(function() {
     			$('#displayTriggers').html("<p> What Happened: "+ displayObject[key] + "<p>");
     		}
     	};
+    	function dateDisplayer() {
+    		
+    	}
     	
     
 
