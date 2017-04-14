@@ -82,7 +82,7 @@ $(document).ready(function() {
 	
 
 	$('.emotion-buttons').on('click',function(){
-     $(this).addClass('emotion-picked');
+     $(this).toggleClass('emotion-picked');
 });
 
 	$('.clear-button2').click(function() {	
