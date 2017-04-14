@@ -90,7 +90,7 @@ $(document).ready(function() {
         $(".emotion-picked").each(function() {
 		    emotionArray.push($(this).val());
 		});
-		alert(emotionArray); 
+		 
 		//nowEmotions= emotionArray;
 		localStorage.setItem('emotions', emotionArray);
 		window.location="trigger.html"
@@ -118,7 +118,7 @@ $(document).ready(function() {
     	//alert(noted);
     	
     	var event1= new Event(loc, env, comp, inter, exter, noted);
-    	alert(event1)
+    	
     	eventArray.push(event1);
     	localStorage.setItem("events", eventArray);
     	window.location="view.html";
@@ -151,7 +151,7 @@ $(document).ready(function() {
     		}
     	};
     	function dateDisplayer() {
-    		
+
     	}
     	
     
