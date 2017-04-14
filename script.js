@@ -16,26 +16,24 @@ var Event = function(location, environment, company, internal, external, notes) 
 }
 $(document).ready(function(){
     $("#login").click(function(){
-        var values = [];
-		$("input").each(function() {
-		    values.push($(this).val());
-		});
+       var login=$("#username").val();
+       var pswd=$("#password").val();
 		
 		var userName = "Maryla";
  		var password= "Rodowicz1";
 
-		if (values[0]==userName && values[1]==password) {
-			alert("success");
-			window.location.href='timestamp.html';
+		if (login==userName && pswd==password) {
+			$('#login-alert').html("success").fadeIn();
+				window.location='timestamp.html';
 			
-		} else if (values[0]=='' || values[1]===''){
+		} else if (login==='' || pswd===''){
 		    $('#login-alert').html("<strong>Warning!</strong> You left a field empty");
-		    $('#login-alert').fadeIn().delay(900).fadeOut();
-		    //return false;
+		    $('#login-alert').fadeIn().delay('slow').fadeOut();
+		   
    
-		   }else {
-					$('#login-alert').html("Something went wrong, try again");
-					$('#login-alert').fadeIn().delay(900).fadeOut();
+		}else {
+			$('#login-alert').html("Something went wrong, try again");
+			$('#login-alert').fadeIn().delay('slow').fadeOut();
 				}
 				
     });
@@ -61,16 +59,14 @@ $(document).ready(function() {
 		
 
 	});
-	// $('#btn2').click(function() {
-
-	// })
+	
 	$('#btn2').click(function() {
 		var time = $('option:selected').text();
 		nowTime=time;
 		console.log(nowTime);
 		localStorage.setItem('enterTime', time);
-		
-	console.log(localStorage.getItem('enterTime') + localStorage.getItem('enterDate') );
+
+		window.location="emotions.html";
 	});
 
 	
@@ -86,7 +82,7 @@ $(document).ready(function() {
 });
 
 	$('.clear-button2').click(function() {	
-		$('.emotion-buttons').trigger("reset");
+		$('.emotion-picked').removeClass();
 	
 	});
 	$('#emotion-submit').click(function() { 
@@ -97,6 +93,7 @@ $(document).ready(function() {
 		alert(emotionArray); 
 		nowEmotions= emotionArray;
 		localStorage.setItem('emotions', emotionArray);
+		window.location="trigger.html"
     }); 
 
     $('#trigger-submit').click(function() {
