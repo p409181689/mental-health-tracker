@@ -51,6 +51,9 @@ $(document).ready(function() {
 
 
 	 });
+	if (jQuery.ui) {
+  		alert("jquery ui success");
+}
 	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
 		nowDate=value;
