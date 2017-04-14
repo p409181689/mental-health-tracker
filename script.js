@@ -44,13 +44,14 @@ $(document).ready(function(){
 			alert("success");
 			window.location.href='timestamp.html';
 			
-		} else if (values[0]==="" || values[1]===""){
-		    $('#login-alert').html("<strong>Warning!</strong> You left the to-do empty");
-		    $('#login-alert').fadeIn().delay(1000).fadeOut();
-		    return false;
+		} else if (values[0]=='' || values[1]===''){
+		    $('#login-alert').html("<strong>Warning!</strong> You left a field empty");
+		    $('#login-alert').fadeIn().delay(900).fadeOut();
+		    //return false;
    
 		   }else {
-					alert("Something went wrong, try again");
+					$('#login-alert').html("Something went wrong, try again");
+					$('#login-alert').fadeIn().delay(900).fadeOut();
 				}
 				
     });
@@ -64,36 +65,31 @@ $(document).ready(function() {
 	        var year = now.getUTCFullYear();
 
 	       var value= $('#date').val(month + "/"  + day + "/"+ year);
-	       nowDate=value;
-	       return nowDate;
+	       localStorage.setItem('enterDate', now);
 
 
 	 });
 	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
 		nowDate=value;
+		localStorage.setItem('enterDate', value);
+		
 		
 
 	});
-	// $('#date input').blur(function() {
-	// 	var stringval = $("date").val();
-	// 		var testdate;
+	// $('#btn2').click(function() {
 
-	// 		try {
-	// 		  testdate = $.datepicker.parseDate('mm/dd/yy', stringval);
-	// 		             // Notice 'yy' indicates a 4-digit year value
-	// 		} catch (e)
-	// 		{
-	// 		 alert(stringval + ' is not valid.  Format must be MM/DD/YYYY ' +
-	// 		       'and the date value must be valid for the calendar.') ;
-	// 		}
-	// 	});
-	
-	$('select').click(function() {
+	// })
+	$('#btn2').click(function() {
 		var time = $('option:selected').text();
-		$('#view-time').data(time).append("<p>" + time + "<p>")
+		nowTime=time;
+		console.log(nowTime);
+		localStorage.setItem('enterTime', time);
 		
+	console.log(localStorage.getItem('enterTime') + localStorage.getItem('enterDate') );
 	});
+
+	
 
 	$('.clear-button').click(function() {	
 		$('form').trigger("reset");
@@ -143,16 +139,17 @@ $(document).ready(function() {
     	//alert(event1)
     	//eventArray.push(event1);
     	
-    	$('#view-location').append("<p>" + "You were at" +event1.location+"</p>");
-    	$('input[name=location]').hide();
+    	// $('#view-location').append("<p>" + "You were at" +event1.location+"</p>");
+    	// $('input[name=location]').hide();
     	//location.assign("view.html");
     	
     });
     
-    // $("#next").click(function() {
-    // 	location.assign("view.html");
-
-    // })
+     $("#next").click(function() {
+     	location.assign("view.html");
+     });
+     	$('#displayDay').html("<p>"+ localStorage.getItem('enterDate') + "<p>");
+    	$('#displayTime').html("<p>"+ localStorage.getItem('enterTime') + "<p>");
     	
     	
     
