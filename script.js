@@ -49,17 +49,22 @@ $(document).ready(function() {
 	        var year = now.getUTCFullYear();
 
 	       var value= $('#date').val(month + "/"  + day + "/"+ year);
-	       now=now.toDateString();
-	       console.log(now);
-	       localStorage.setItem('enterDate1', now);
+	       dateString=now.toDateString();
+	       console.log(dateString);
+	       console.log("Type: " +typeof(dateString));
+	       localStorage.setItem('enterDate1', dateString);
 
 
 	 });
-	if (jQuery.ui) {
-  		console.log("jquery ui success");
-}
+	//Check if jquery ui is loading
+// 	if (jQuery.ui) {
+//   		console.log("jquery ui success");
+// }
 	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
+		console.log(value);
+		value=value.toDateString;
+		console.log("Value type: " + typeof(value));
 		//nowDate=value;
 		localStorage.setItem('enterDate2', value);
 		
@@ -69,8 +74,8 @@ $(document).ready(function() {
 	
 	$('#btn2').click(function() {
 		var time = $('option:selected').text();
-		nowTime=time;
-		console.log(nowTime);
+		// nowTime=time;
+		// console.log(nowTime);
 
 		localStorage.setItem('enterTime', time);
 
@@ -81,6 +86,7 @@ $(document).ready(function() {
 
 	$('.clear-button').click(function() {	
 		$('form').trigger("reset");
+
 	
 	});
 	
@@ -107,15 +113,14 @@ $(document).ready(function() {
 //TRIGGERS
     $('#trigger-submit').click(function() {
     	var loc= $('input[name=location]').val();
-    	//nowLoc=loc;
-    	//var loc=$(this).val();
-    	//alert(loc);
+    	
     	var env=$('option:selected').val();//this could be a problem!
-    	//alert(env);
-    	//nowEnv=env;
+    		if (env == "Other") {
+    			
+    		}
+    	
     	var comp = $('input[name=company]').val();
-    	nowComp=comp;
-    	//alert(comp);
+    	
     	var inter=$('input[name=internal]').val();
     	//nowInternal=inter;
     	//alert(inter);
@@ -136,8 +141,13 @@ $(document).ready(function() {
     
 
      //VIEW
-     	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "<p>");
-     	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "<p>");
+     	if (localStorage.getItem('enterDate1') != ""){
+     		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "<p>");
+     	} else {
+     		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "<p>");
+     	}
+     	
+     	
     	$('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
     	//$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
     	
@@ -166,6 +176,10 @@ $(document).ready(function() {
     		}
     	};
 
+    	$("#empty-storage").click(function() {
+    		localStorage.clear();
+    		window.location="timestamp.html";
+    	})
     	
     
 
