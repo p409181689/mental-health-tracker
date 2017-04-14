@@ -2,7 +2,7 @@
 var nowTime;
 var nowDate;
 var nowEmotions=[];
-
+var emotionArray=[];
 var eventArray=[];
 
 var Event = function(location, environment, company, internal, external, notes) {
@@ -86,12 +86,12 @@ $(document).ready(function() {
 	
 	});
 	$('#emotion-submit').click(function() { 
-        var emotionArray=[];
+        
         $(".emotion-picked").each(function() {
 		    emotionArray.push($(this).val());
 		});
 		alert(emotionArray); 
-		nowEmotions= emotionArray;
+		//nowEmotions= emotionArray;
 		localStorage.setItem('emotions', emotionArray);
 		window.location="trigger.html"
     }); 
@@ -121,7 +121,7 @@ $(document).ready(function() {
     	alert(event1)
     	eventArray.push(event1);
     	localStorage.setItem("events", eventArray);
-    	
+    	window.location="view.html";
     	
     });
     
@@ -130,9 +130,24 @@ $(document).ready(function() {
      });
      	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate') + "<p>");
     	$('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
-    	$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
-    	$('#displayTriggers').html("<p> What Happened: "+ localStorage.getItem('events') + "<p>");
-    	
+    	//$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
+    	//$('#displayTriggers').html("<p> What Happened: "+ localStorage.getItem('events') + "<p>");
+    	emotionDisplayer();
+    	eventDisplayer();
+    	function emotionDisplayer() {
+    		emotionDisplay = localStorage.getItem('emotions');
+    		console.log(emotionDisplay);
+    		for(key in emotionDisplay) {
+    			$('#displayEmotions').html("<p> You felt: " + emotionDisplay[key] + "<p>");
+    		}
+    	}
+    	 function eventDisplayer() {
+    		displayObject = localStorage.getItem('events');
+    		console.log(displayObject);
+    		for(key in displayObject) {
+    			$('#displayTriggers').html("<p> What Happened: "+ displayObject[key] + "<p>");
+    		}
+    	};
     	
     
 
