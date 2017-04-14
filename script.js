@@ -44,14 +44,18 @@ $(document).ready(function(){
 			alert("success");
 			window.location.href='timestamp.html';
 			
-		}
-		else {
-			alert("Something went wrong, try again");
-		}
-
-		
+		} else if (values[0]==="" || values[1]===""){
+		    $('#login-alert').html("<strong>Warning!</strong> You left the to-do empty");
+		    $('#login-alert').fadeIn().delay(1000).fadeOut();
+		    return false;
+   
+		   }else {
+					alert("Something went wrong, try again");
+				}
+				
     });
 });
+
 $(document).ready(function() {
 	$('#now').click(function() {
 	        var now = new Date();
@@ -61,6 +65,7 @@ $(document).ready(function() {
 
 	       var value= $('#date').val(month + "/"  + day + "/"+ year);
 	       nowDate=value;
+	       return nowDate;
 
 
 	 });
@@ -86,7 +91,7 @@ $(document).ready(function() {
 	
 	$('select').click(function() {
 		var time = $('option:selected').text();
-		nowTime= time;
+		$('#view-time').data(time).append("<p>" + time + "<p>")
 		
 	});
 
@@ -119,7 +124,7 @@ $(document).ready(function() {
     	//var loc=$(this).val();
     	//alert(loc);
     	var env=$('option:selected').val();//this could be a problem!
-    	//alert(env);
+    	alert(env);
     	//nowEnv=env;
     	var comp = $('input[name=company]').val();
     	nowComp=comp;
@@ -135,31 +140,29 @@ $(document).ready(function() {
     	//alert(noted);
     	
     	var event1= new Event(loc, env, comp, inter, exter, noted);
-    	eventArray.push(event1);
+    	//alert(event1)
+    	//eventArray.push(event1);
     	
-    	console.log(eventArray[0].location);
-    	alert(eventArray[0]);
+    	$('#view-location').append("<p>" + "You were at" +event1.location+"</p>");
+    	$('input[name=location]').hide();
+    	//location.assign("view.html");
     	
-    	//var event1= new Event(value, time, emotionArray, loc, env, comp, inter, exter, noted);
-
-    })
-    if(window.location === "view.html") {
-    	$('#view-time').append("<p>" +nowTime+"</p>");
-    	$('#view-date').append("<p>" +eventArray[0].environment+"</p>");
-    	console.log(eventArray[0].loc)
-    }
+    });
     
-//     var wrapper = $('#wrapper'), container;
-// 	for (var key in grocery_list){
-//     container = $('<div id="grocery_item" class="container"></div>');
-//     wrapper.append(container);
-//     container.append('<div class="item">' + key +'</div>');
-//     container.append('<div class="category">' + grocery_list[key].category +'</div>');
-//     container.append('<div class="price">' + grocery_list[key].price +'</div>');
-// }
+    // $("#next").click(function() {
+    // 	location.assign("view.html");
+
+    // })
+    	
+    	
+    
+
 });
 
 
+
+		 
+    	
 
 
 
