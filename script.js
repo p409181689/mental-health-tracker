@@ -39,6 +39,7 @@ $(document).ready(function(){
     });
 });
 
+//TIMESTAMP
 $(document).ready(function() {
 	$('#now').click(function() {
 	        var now = new Date();
@@ -52,7 +53,7 @@ $(document).ready(function() {
 
 	 });
 	if (jQuery.ui) {
-  		alert("jquery ui success");
+  		console.log("jquery ui success");
 }
 	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
@@ -79,7 +80,7 @@ $(document).ready(function() {
 	
 	});
 	
-
+//EMOTIONS
 	$('.emotion-buttons').on('click',function(){
      $(this).toggleClass('emotion-picked');
 });
@@ -99,13 +100,14 @@ $(document).ready(function() {
 		window.location="trigger.html"
     }); 
 
+//TRIGGERS
     $('#trigger-submit').click(function() {
     	var loc= $('input[name=location]').val();
     	//nowLoc=loc;
     	//var loc=$(this).val();
     	//alert(loc);
     	var env=$('option:selected').val();//this could be a problem!
-    	alert(env);
+    	//alert(env);
     	//nowEnv=env;
     	var comp = $('input[name=company]').val();
     	nowComp=comp;
@@ -123,7 +125,7 @@ $(document).ready(function() {
     	var event1= new Event(loc, env, comp, inter, exter, noted);
     	
     	eventArray.push(event1);
-    	localStorage.setItem("events", eventArray);
+    	localStorage.setItem("events", JSON.stringify(eventArray));
     	window.location="view.html";
     	
     });
@@ -131,25 +133,30 @@ $(document).ready(function() {
      $("#next").click(function() {
      	location.assign("view.html");
      });
+
+     //VIEW
      	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate') + "<p>");
     	$('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
     	//$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
-    	//$('#displayTriggers').html("<p> What Happened: "+ localStorage.getItem('events') + "<p>");
+    	
+    	displayedObject=localStorage.getItem('events');
+    	displayedObject=('displayedObject: ', JSON.parse(displayedObject));
+    	console.log(displayedObject);
+    	$('#displayTriggers').html("<p> Where/Why I felt this: In: "+ displayedObject[0].location + "</p>" + "<p> At:" + displayedObject[0].environment + "<p>");
     	emotionDisplayer();
-    	eventDisplayer();
+    	//eventDisplayer();
+    	
+    	//disploying functions - only one works
     	function emotionDisplayer() {
     		emotionDisplay = localStorage.getItem('emotions').split(',');
-    		//emotionDisplay=emotionDisplay.split(',');
-    		$('#displayEmotions').html("<p> You felt: " + emotionDisplay + "<p>")
+    		$('#displayEmotions').html("<p> You felt: " + emotionDisplay + "<p>");
     		console.log(emotionDisplay);
-    		// for(i=0; i<emotionDisplay.length; i++) {
-    		// 	$('#displayEmotions').html("<p> You felt: " + emotionDisplay[i] + "<p>");
-    		// }
+    		
     	}
     	 function eventDisplayer() {
     		displayObject = localStorage.getItem('events');
-    		console.log(displayObject);
-    		for(key in displayObject) {
+    		displayObject=('displayObject: ', JSON.parse(displayObject));
+    		for(var key in displayObject) {
     			$('#displayTriggers').html("<p> What Happened: "+ displayObject[key] + "<p>");
     		}
     	};
