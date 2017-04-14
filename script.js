@@ -1,20 +1,4 @@
-// var Event = function(date, time, emotions, location, environment, company, internal, external, notes) {
-// 	this.date=date;
-// 	this.time=time;
-// 	this.emotions=emotions;
-// 	this.location=location;
-// 	this.environment=environment;
-// 	this.company=company;
-// 	this.internal = internal;
-// 	this.external=external;
-// 	this.notes=notes;
-// }
-// var nowLoc;
-// var nowEnv;
-// var nowComp;
-// var nowInternal;
-// var nowExternal;
-// var nowNotes;
+
 var nowTime;
 var nowDate;
 var nowEmotions=[];
@@ -112,6 +96,7 @@ $(document).ready(function() {
 		});
 		alert(emotionArray); 
 		nowEmotions= emotionArray;
+		localStorage.setItem('emotions', emotionArray);
     }); 
 
     $('#trigger-submit').click(function() {
@@ -136,20 +121,20 @@ $(document).ready(function() {
     	//alert(noted);
     	
     	var event1= new Event(loc, env, comp, inter, exter, noted);
-    	//alert(event1)
-    	//eventArray.push(event1);
+    	alert(event1)
+    	eventArray.push(event1);
+    	localStorage.setItem("events", eventArray);
     	
-    	// $('#view-location').append("<p>" + "You were at" +event1.location+"</p>");
-    	// $('input[name=location]').hide();
-    	//location.assign("view.html");
     	
     });
     
      $("#next").click(function() {
      	location.assign("view.html");
      });
-     	$('#displayDay').html("<p>"+ localStorage.getItem('enterDate') + "<p>");
-    	$('#displayTime').html("<p>"+ localStorage.getItem('enterTime') + "<p>");
+     	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate') + "<p>");
+    	$('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
+    	$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
+    	$('#displayTriggers').html("<p> What Happened: "+ localStorage.getItem('events') + "<p>");
     	
     	
     
