@@ -23,18 +23,19 @@ $(document).ready(function(){
  		var password= "Rodowicz1";
 
 		if (login==userName && pswd==password) {
+			$('#link-hide').hide();
 			$('#login-alert').html("success").fadeIn();
-				window.location="timestamp.html"
+			window.location="timestamp.html";
+			return false;
 			
 		} else if (login==='' || pswd===''){
 		    $('#login-alert').html("<strong>Warning!</strong> You left a field empty");
-		    $('#login-alert').fadeIn().delay('slow').fadeOut();
-		   
+		    return false;
    
-		}else {
+		} else {
 			$('#login-alert').html("Something went wrong, try again");
-			$('#login-alert').fadeIn().delay('slow').fadeOut();
-				}
+			return false;
+		}
 				
     });
 });
@@ -48,7 +49,7 @@ $(document).ready(function() {
 	        var year = now.getUTCFullYear();
 
 	       var value= $('#date').val(month + "/"  + day + "/"+ year);
-	       localStorage.setItem('enterDate', now);
+	       localStorage.setItem('enterDate1', now);
 
 
 	 });
@@ -58,7 +59,7 @@ $(document).ready(function() {
 	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
 		nowDate=value;
-		localStorage.setItem('enterDate', value);
+		localStorage.setItem('enterDate2', value);
 		
 		
 
@@ -132,7 +133,7 @@ $(document).ready(function() {
     
 
      //VIEW
-     	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate') + "<p>");
+     	//$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate') + "<p>");
     	$('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
     	//$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
     	
@@ -140,8 +141,11 @@ $(document).ready(function() {
     	displayedObject=('displayedObject: ', JSON.parse(displayedObject));
     	console.log(displayedObject);
     	$('#displayTriggers').html("<p> Where/Why I felt this: In: "+ displayedObject[0].location + "</p>" + "<p> At:" + displayedObject[0].environment + "<p>");
+    	
+    	dateDisplayer();
     	emotionDisplayer();
     	//eventDisplayer();
+
     	
     	//disploying functions - only one works
     	function emotionDisplayer() {
@@ -157,8 +161,18 @@ $(document).ready(function() {
     			$('#displayTriggers').html("<p> What Happened: "+ displayObject[key] + "<p>");
     		}
     	};
-    	function dateDisplayer() {
 
+    	function dateDisplayer() {
+    		if(localStorage.getItem('enterDate1')!=""){
+    			now=localStorage.getItem('enterDate1');
+    			now=('now: ', JSON.parse(displayedObject));
+    			console.log(now);
+    			var month = now.getMonth()+1;
+	        	var day = now.getDate();
+	        	var year = now.getUTCFullYear();
+	        	('#displayDay').html("<p> Date: "+ month+ "/" +day + "/"+year + "<p>");
+
+    		}
     	}
     	
     
