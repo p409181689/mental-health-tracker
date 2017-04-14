@@ -24,7 +24,7 @@ $(document).ready(function(){
 
 		if (login==userName && pswd==password) {
 			$('#login-alert').html("success").fadeIn();
-				window.location='timestamp.html';
+				window.location="timestamp.html"
 			
 		} else if (login==='' || pswd===''){
 		    $('#login-alert').html("<strong>Warning!</strong> You left a field empty");
@@ -135,7 +135,8 @@ $(document).ready(function() {
     	emotionDisplayer();
     	eventDisplayer();
     	function emotionDisplayer() {
-    		emotionDisplay = localStorage.getItem('emotions');
+    		emotionDisplay = localStorage.getItem('emotions').split(',');
+    		//emotionDisplay=emotionDisplay.split(',');
     		console.log(emotionDisplay);
     		for(key in emotionDisplay) {
     			$('#displayEmotions').html("<p> You felt: " + emotionDisplay[key] + "<p>");
