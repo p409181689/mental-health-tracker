@@ -49,6 +49,8 @@ $(document).ready(function() {
 	        var year = now.getUTCFullYear();
 
 	       var value= $('#date').val(month + "/"  + day + "/"+ year);
+	       now=now.toDateString();
+	       console.log(now);
 	       localStorage.setItem('enterDate1', now);
 
 
@@ -58,7 +60,7 @@ $(document).ready(function() {
 }
 	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
-		nowDate=value;
+		//nowDate=value;
 		localStorage.setItem('enterDate2', value);
 		
 		
@@ -69,6 +71,7 @@ $(document).ready(function() {
 		var time = $('option:selected').text();
 		nowTime=time;
 		console.log(nowTime);
+
 		localStorage.setItem('enterTime', time);
 
 		window.location="emotions.html";
@@ -133,7 +136,8 @@ $(document).ready(function() {
     
 
      //VIEW
-     	//$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate') + "<p>");
+     	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "<p>");
+     	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "<p>");
     	$('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
     	//$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
     	
@@ -142,7 +146,7 @@ $(document).ready(function() {
     	console.log(displayedObject);
     	$('#displayTriggers').html("<p> Where/Why I felt this: In: "+ displayedObject[0].location + "</p>" + "<p> At:" + displayedObject[0].environment + "<p>");
     	
-    	dateDisplayer();
+    	//dateDisplayer();
     	emotionDisplayer();
     	//eventDisplayer();
 
@@ -162,18 +166,6 @@ $(document).ready(function() {
     		}
     	};
 
-    	function dateDisplayer() {
-    		if(localStorage.getItem('enterDate1')!=""){
-    			now=localStorage.getItem('enterDate1');
-    			now=('now: ', JSON.parse(displayedObject));
-    			console.log(now);
-    			var month = now.getMonth()+1;
-	        	var day = now.getDate();
-	        	var year = now.getUTCFullYear();
-	        	('#displayDay').html("<p> Date: "+ month+ "/" +day + "/"+year + "<p>");
-
-    		}
-    	}
     	
     
 
