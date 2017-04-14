@@ -130,9 +130,6 @@ $(document).ready(function() {
     	
     });
     
-     $("#next").click(function() {
-     	location.assign("view.html");
-     });
 
      //VIEW
      	$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate') + "<p>");
