@@ -178,25 +178,24 @@ $(document).ready(function() {
     		localStorage.clear();
     		window.location="timestamp.html";
     	})
-  
+    	
+    
+
+});
 
 
-// var xhr = new XMLHttpRequest();
-// //"https://https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=photos&state=1234zyx"
+var xhr = new XMLHttpRequest();
+//"https://https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=photos&state=1234zyx"
 
 
-// xhr.open("GET", "https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=sleep&state=1234zyx", false);
-// // Add your code below!
-// xhr.send();
-// console.log(xhr.status);
-// console.log(xhr.statusText);
+xhr.open("GET", "https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=sleep&state=1234zyx", false);
+// Add your code below!
+xhr.send();
+console.log(xhr.status);
+console.log(xhr.statusText);
 
 
-// POST https://api.oauth2server.com/token
-//   grant_type=authorization_code&
-//   code=AUTH_CODE_HERE&
-//   redirect_uri=REDIRECT_URI&
-//   client_id=2288Y5
+
 
 
 
