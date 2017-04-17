@@ -1,14 +1,15 @@
 body {
-	background-color: rgb(195,225,229);
+	background-color: rgb(200,227,204);
 	text-align:center;
 }
 .soothing {
 	background-image: url("soothing-pic.jpg");
 	 background-repeat: no-repeat;
 	 background-size: cover;
-	 height: 75px;
-	  line-height: 500%
+	 height: 100px;
+	 line-height: 550%
 }
+
 
 .inputText {
 	color: rgb(123,140,157);
@@ -19,11 +20,15 @@ button {
 }
 h1 {
 	font-family: 'Lobster', cursive;
+	font-size: 60px;
 }
 #mainbox {
 	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
+	border-style: double;
+	margin-top: 50px;
+
 }
 
 .timebuttons {
