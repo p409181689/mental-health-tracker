@@ -95,7 +95,7 @@ $(document).ready(function() {
      $(this).toggleClass('emotion-picked');
 });
 
-	$('.clear-button2').click(function() {	
+	$('#clear-button2').click(function() {	
 		$('.emotion-picked').removeClass();
 	
 	});
