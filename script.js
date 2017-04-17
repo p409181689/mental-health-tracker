@@ -116,7 +116,7 @@ $(document).ready(function() {
     	
     	var env=$('option:selected').val();//this could be a problem!
     		if (env == "Other") {
-    			$('#trigger-add').append("<input type='text' name='otherAdd'>");
+    			$('#trigger-add').append("<p><input type='text' name='otherAdd'></p>");
     			env=('input[name=otherAdd]').val();
     		} else if (env == "Select") {
     			alert("Invalid Environment Option, please select from the choices below");
