@@ -8,12 +8,13 @@
 	<script src="script.js"></script>
 </head>
 <body>
-	<h1>Mental Healthier</h1>
-		<br>
+	<div class="soothing">
+	<h1> Mental Healthier</h1>
+	</div>
 	<p>Now let's enter some info about what happened</p>
 	<form class="trigger-entry">
 			<p>Where are you?</p>
-			<input type="text" name="location" placeholder="ex. Friend's House">
+			<input type="text" name="location" maxlength = "25" placeholder="ex. Friend's House">
 			<p>What type of enviroment are you in?</p>
 			<select name="environment-select">
 				<option value = "Select">Select One</option>
@@ -25,8 +26,9 @@
 				<div id="trigger-add"></div>
 			</select> 
 			<p>Who Were You With?</p>
+			<p id="who">If alone, please enter "alone"</p>
 			<input type="text" name="company" placeholder="ex. Mom">
-			<p>What Other External Factors are Happening?</p>
+			<p>What Other External Factors Are Happening?</p>
 			<input type="text" name="external" placeholder="ex. Dog barking">
 			<p>What Thoughts Are You Having?</p>
 			<input type="text" name="internal" placeholder="ex. Racing Thoughts">
