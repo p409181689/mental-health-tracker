@@ -115,10 +115,16 @@ $(document).ready(function() {
     	var loc= $('input[name=location]').val();
     	
     	var env=$('option:selected').val();//this could be a problem!
-    		// if (env == "Other") {
-    		// 	$('#trigger-add').append("<input type='text' name='otherAdd'>");
-    		// 	env=('input[name=otherAdd]').val();
-    		// }
+    		if (env == "Other") {
+    			$('#trigger-add').append("<input type='text' name='otherAdd'>");
+    			env=('input[name=otherAdd]').val();
+    		} else if (env == "Select") {
+    			alert("Invalid Environment Option, please select from the choices below");
+    			env=" "
+    			window.location = "trigger.html";
+    		} else {
+
+    		}
     	
     	var comp = $('input[name=company]').val();
     	
@@ -152,7 +158,9 @@ $(document).ready(function() {
     	displayedObject=localStorage.getItem('events');
     	displayedObject=('displayedObject: ', JSON.parse(displayedObject));
     	console.log(displayedObject);
-    	$('#displayTriggers').html("<p> Where/Why I felt this: In: "+ displayedObject[0].location + "</p>" + "<p> At:" + displayedObject[0].environment + "<p>");
+    	$('#displayTriggers').append("<p> Where I was "+ displayedObject[0].location + "</p>" + "<p> At:" + 
+    		displayedObject[0].environment + "</p>" +"<p> With:" + displayedObject[0].company + "</p>" + "<p> Thoughts:" + displayedObject[0].internal + "</p>"
+    		+ "<p> Other Factors:" + displayedObject[0].external + "</p>" +"<p> Notes:" + displayedObject[0].notes + "</p>");
     	
     	//dateDisplayer();
     	emotionDisplayer();
@@ -162,7 +170,7 @@ $(document).ready(function() {
     	//disploying functions - only one works
     	function emotionDisplayer() {
     		emotionDisplay = localStorage.getItem('emotions').split(',');
-    		$('#displayEmotions').html("<p> You felt: " + emotionDisplay + "<p>");
+    		$('#displayEmotions').html("<p> I felt: " + emotionDisplay + "<p>");
     		console.log(emotionDisplay);
     		
     	}
