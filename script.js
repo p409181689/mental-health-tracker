@@ -7,6 +7,7 @@ var eventArray=[];
 var dayArray=[];
 var env;
 
+
 var Event = function(location, environment, company, internal, external, notes) {
 	
 	this.location=location;
@@ -201,7 +202,7 @@ $(document).ready(function() {
     	
     	displayedObject=localStorage.getItem('events');
     	displayedObject=('displayedObject: ', JSON.parse(displayedObject));
-    	console.log(displayedObject);
+    	
     	$('#displayTriggers').append("<p> Where I was "+ displayedObject[0].location + "</p>" + "<p> At:" + 
     		displayedObject[0].environment + "</p>" +"<p> With:" + displayedObject[0].company + "</p>" + "<p> Thoughts:" + displayedObject[0].internal + "</p>"
     		+ "<p> Other Factors:" + displayedObject[0].external + "</p>" +"<p> Notes:" + displayedObject[0].notes + "</p>");
@@ -246,22 +247,25 @@ $(document).ready(function() {
 
 var day1=new Day (localStorage.getItem('enterDate2'), localStorage.getItem('enterTime'), localStorage.getItem('emotions'), localStorage.getItem('events'));
 dayArray.push(day1);
-//console.log(dayArray[0].date);
+//localStorage.setItem('array', dayArray);
 
  
 
 console.log("What is the current date: " + dayArray[0].date)
-var stupid = dayArray[0].date;
+var stupid = localStorage.getItem('events');
+stupid = ('stupid: ', JSON.parse(stupid));
+console.log("This is stupid: " + stupid);
 var data = [
   //{name: 'Ted', surname: 'Smith', company: 'Electrical Systems', age: 30},
-  {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, location: dayArray[0].triggers.location, }
+  {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, location: stupid[0].location , environment: stupid[0].environment , company: stupid[0].company
+   }
   
 ];
 
 $(function(){
   $('#container').FancyGrid({    
     width: 1000,
-    height: 200,
+    height: 300,
     data: data,
     columns: [{
       index: 'day',      
@@ -282,9 +286,42 @@ $(function(){
       index: 'location',
       title: 'Location',
       type: 'string',
-      width: 600,
+      width: 100,
       height: 150
-    }]
+    },{
+      index: 'environment',
+      title: 'Location',
+      type: 'string',
+      width: 100,
+      height: 150
+    },
+    {
+      index: 'company',
+      title: 'Company',
+      type: 'string',
+      width: 100,
+      height: 150
+    },{
+      index: 'internal',
+      title: 'Thoughts',
+      type: 'string',
+      width: 100,
+      height: 150
+    },{
+      index: 'external',
+      title: 'External Factors',
+      type: 'string',
+      width: 100,
+      height: 150
+    },{
+      index: 'notes',
+      title: 'Notes',
+      type: 'string',
+      width: 100,
+      height: 150
+    },
+
+    ]
   });
 });
 
