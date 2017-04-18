@@ -130,20 +130,25 @@ $(document).ready(function() {
     }); 
 
 //TRIGGERS
+    $('#trigger-add').hide();
     $('#trigger-submit').click(function() {
     	var loc= $('input[name=location]').val();
     	
-    	var env=$('option:selected').val();//this could be a problem!
-    		if (env == "Other") {
-    			$('#trigger-add').append("<p><input type='text' name='otherAdd'></p>");
-    			env=('input[name=otherAdd]').val();
-    		} else if (env == "Select") {
-    			alert("Invalid Environment Option, please select from the choices below");
-    			env=" "
-    			window.location = "trigger.html";
-    		} else {
+        //BROKEN
+        $('.environment-select').click(function() {
+            var env=$('option:selected').val();//this could be a problem!
+            if (env == "Other") {
+                $('#trigger-add').show();
+                env=('input[name=otherAdd]').val();
+            } else if (env == "Select") {
+                alert("Invalid Environment Option, please select from the choices below");
+                env=" "
+                window.location = "trigger.html";
+            } else {
 
-    		}
+            }
+        })
+    	
     	
     	var comp = $('input[name=company]').val();
     	
@@ -189,8 +194,16 @@ $(document).ready(function() {
     	//disploying functions - only one works
     	function emotionDisplayer() {
     		emotionDisplay = localStorage.getItem('emotions').split(',');
-    		$('#displayEmotions').html("<p> I felt: " + emotionDisplay + "<p>");
-    		console.log(emotionDisplay);
+            $('#displayEmotions').html("<p> I felt: " + emotionDisplay[0] + "</p>")
+
+            console.log(emotionDisplay);
+            for(i=1; i<emotionDisplay.length; i++) {
+                $('#displayEmotions').append("<p>" + emotionDisplay[i] + "</p>");
+            }
+            
+
+    		
+    		
     		
     	}
     	 function eventDisplayer() {
