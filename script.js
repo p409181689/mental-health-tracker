@@ -94,6 +94,25 @@ $(document).ready(function() {
 	$('.emotion-buttons').on('click',function(){
      $(this).toggleClass('emotion-picked');
 });
+    $('.hide-emotion').hide();
+
+    $('#add-emotion').click(function() {
+        $('.hide-emotion').toggle();
+        
+        $('#adding').click(function() {
+            var newEmotion = $('#new-emotion').val();
+            $('#last-emotion').html('<button class="emotion-buttons" id="added" value="">'+newEmotion+'</button>');
+            console.log(newEmotion);
+            $('#last-emotion').val(newEmotion);
+            console.log($('#last-emotion').val())
+            $('#added').addClass('emotion-picked');
+            emotionArray.push($('#last-emotion').val());
+
+           
+        });
+        
+
+    });
 
 	$('#clear-button2').click(function() {	
 		$('.emotion-picked').removeClass();
@@ -105,7 +124,7 @@ $(document).ready(function() {
 		    emotionArray.push($(this).val());
 		});
 		 
-		//nowEmotions= emotionArray;
+		console.log(emotionArray)
 		localStorage.setItem('emotions', emotionArray);
 		window.location="trigger.html"
     }); 
@@ -192,18 +211,18 @@ $(document).ready(function() {
 });
 
 
-var xhr = new XMLHttpRequest();
-//"https://https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=photos&state=1234zyx"
+// var xhr = new XMLHttpRequest();
+// //"https://https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=photos&state=1234zyx"
 
 
-xhr.open("GET", "https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=sleep&state=1234zyx", false);
-// Add your code below!
-xhr.send();
-console.log(xhr.status);
-console.log(xhr.statusText);
+// xhr.open("GET", "https://api.fitbit.com/1.2/user/-/sleep/date/2017-04-17.json", false);
+// // Add your code below!
+// xhr.send();
+// console.log(xhr.status);
+// console.log(xhr.statusText);
 
 
-
+//curl -i -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyV1JYNjgiLCJhdWQiOiIyMjg4WTUiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc2xlIiwiZXhwIjoxNDkzMDc3NTgxLCJpYXQiOjE0OTI0NzI4NTJ9.NHfYFbVV2Sj7RcG-ZfZhfWUUurjDTvc8ecrlY5bsmj4" https://api.fitbit.com/1/user/-/profile.json
 
 
 
