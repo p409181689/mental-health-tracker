@@ -226,6 +226,14 @@ $(document).ready(function() {
     		
     		
     	}
+
+        $("#empty-storage").click(function() {
+            //localStorage.clear();
+            window.location="timestamp.html";
+        })      
+    
+
+});
     	 
 
  var Day = function(date, time, events, triggers) {
@@ -236,18 +244,48 @@ $(document).ready(function() {
 }
 
 
-var day1=new Day (localStorage.getItem('enterDate1'), localStorage.getItem('enterTime'), localStorage.getItem('emotions'), localStorage.getItem('events'));
+var day1=new Day (localStorage.getItem('enterDate2'), localStorage.getItem('enterTime'), localStorage.getItem('emotions'), localStorage.getItem('events'));
 dayArray.push(day1);
+//console.log(dayArray[0].date);
 
- $("#empty-storage").click(function() {
-            //localStorage.clear();
-            window.location="timestamp.html";
-        })   	
-    
+ 
 
+console.log("What is the current date: " + dayArray[0].date)
+var stupid = dayArray[0].date;
+var data = [
+  //{name: 'Ted', surname: 'Smith', company: 'Electrical Systems', age: 30},
+  {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, triggers: dayArray[0].triggers}
+  
+];
+
+$(function(){
+  $('#container').FancyGrid({    
+    width: 1000,
+    height: 200,
+    data: data,
+    columns: [{
+      index: 'day',      
+      title: 'Date',
+      type: 'string',
+      width: 100
+    },{
+      index: 'time',
+      title: 'Time',
+      type: 'string',
+      width: 100
+    },{
+      index: 'events',
+      title: 'Emotions',
+      type: 'string',
+      width: 200
+    },{
+      index: 'triggers',
+      title: 'Triggers',
+      type: 'string',
+      width: 400
+    }]
+  });
 });
-
-
 
 // var xhr = new XMLHttpRequest();
 // //"https://https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=photos&state=1234zyx"
