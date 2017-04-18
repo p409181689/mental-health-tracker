@@ -193,40 +193,40 @@ $(document).ready(function() {
 
      //VIEW
      	
-     		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "</p>");
-            //$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "</p>");
-     	      console.log(localStorage.getItem('enterDate2'));
+     // 		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "</p>");
+     //        //$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "</p>");
+     // 	      console.log(localStorage.getItem('enterDate2'));
      	
-    	$('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
-    	//$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
+    	// $('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
+    	// //$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
     	
-    	displayedObject=localStorage.getItem('events');
-    	displayedObject=('displayedObject: ', JSON.parse(displayedObject));
+    	// displayedObject=localStorage.getItem('events');
+    	// displayedObject=('displayedObject: ', JSON.parse(displayedObject));
     	
-    	$('#displayTriggers').append("<p> Where I was "+ displayedObject[0].location + "</p>" + "<p> At:" + 
-    		displayedObject[0].environment + "</p>" +"<p> With:" + displayedObject[0].company + "</p>" + "<p> Thoughts:" + displayedObject[0].internal + "</p>"
-    		+ "<p> Other Factors:" + displayedObject[0].external + "</p>" +"<p> Notes:" + displayedObject[0].notes + "</p>");
+    	// $('#displayTriggers').append("<p> Where I was "+ displayedObject[0].location + "</p>" + "<p> At:" + 
+    	// 	displayedObject[0].environment + "</p>" +"<p> With:" + displayedObject[0].company + "</p>" + "<p> Thoughts:" + displayedObject[0].internal + "</p>"
+    	// 	+ "<p> Other Factors:" + displayedObject[0].external + "</p>" +"<p> Notes:" + displayedObject[0].notes + "</p>");
     	
-    	//dateDisplayer();
-    	emotionDisplayer();
+    	// //dateDisplayer();
+    	// emotionDisplayer();
     	
 
     	
-    	//disploying functions - only one works
-    	function emotionDisplayer() {
-    		emotionDisplay = localStorage.getItem('emotions').split(',');
-            $('#displayEmotions').html("<p> I felt: " + emotionDisplay[0] + "</p>")
+    	// //disploying functions - only one works
+    	// function emotionDisplayer() {
+    	// 	emotionDisplay = localStorage.getItem('emotions').split(',');
+     //        $('#displayEmotions').html("<p> I felt: " + emotionDisplay[0] + "</p>")
 
-            console.log(emotionDisplay);
-            for(i=1; i<emotionDisplay.length; i++) {
-                $('#displayEmotions').append("<p>" + emotionDisplay[i] + "</p>");
-            }
+     //        console.log(emotionDisplay);
+     //        for(i=1; i<emotionDisplay.length; i++) {
+     //            $('#displayEmotions').append("<p>" + emotionDisplay[i] + "</p>");
+     //        }
             
 
     		
     		
     		
-    	}
+    	// }
 
         $("#empty-storage").click(function() {
             //localStorage.clear();
@@ -257,15 +257,24 @@ stupid = ('stupid: ', JSON.parse(stupid));
 console.log("This is stupid: " + stupid);
 var data = [
   //{name: 'Ted', surname: 'Smith', company: 'Electrical Systems', age: 30},
-  {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, location: stupid[0].location , environment: stupid[0].environment , company: stupid[0].company
-   }
-  
+  {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, location: stupid[0].location , environment: stupid[0].environment , company: stupid[0].company,internal: stupid[0].internal, external: stupid[0].external, notes: stupid[0].notes},
+   {day: "4/10/17", time: "Morning" , events: "Happy, Excited" , location: "South Lyon" , environment: "Home" , company: "Alone" , internal: "Cuddling puppies is nice" , external: "Quiet House" , notes: "NA" },
+   {day: "4/09/17", time: "Evening" , events: "Tired, Upset" , location: "Comerica Park", environment: "Baseball stadium" , company: "Large crowd" , internal: "WHY SPORTSBALL" , external: "Crowd Noise" , notes: "SPORTSBALLLLL!" },
+  {day: "4/08/17", time: "Afternoon" , events: "Stressed" , location: "South Lyon", environment: "Home" , company: "Alone" , internal: "Cleaning is taking too long" , external: "Ella barking" , notes: "NA" }
 ];
 
 $(function(){
-  $('#container').FancyGrid({    
-    width: 1000,
-    height: 300,
+  $('#container').FancyGrid({ 
+
+    width: 'fit',
+    height: 'fit',
+    theme: 'bootstrap',
+    config: {
+    cellHeight: 500,
+    cellHeaderHeight: 500,
+    titleHeight: 100
+   
+  },
     data: data,
     columns: [{
       index: 'day',      
@@ -281,44 +290,52 @@ $(function(){
       index: 'events',
       title: 'Emotions',
       type: 'string',
-      width : 300
+      width : 200,
+      sortable: true
     },{
       index: 'location',
       title: 'Location',
       type: 'string',
       width: 100,
-      height: 150
+      sortable: true
+      
     },{
       index: 'environment',
-      title: 'Location',
+      title: 'Environment',
       type: 'string',
       width: 100,
-      height: 150
+      sortable: true
+      
     },
     {
       index: 'company',
       title: 'Company',
       type: 'string',
       width: 100,
-      height: 150
-    },{
-      index: 'internal',
-      title: 'Thoughts',
-      type: 'string',
-      width: 100,
-      height: 150
+      sortable: true
+      
     },{
       index: 'external',
       title: 'External Factors',
       type: 'string',
-      width: 100,
-      height: 150
+      width: 300,
+      sortable: true
+      
+    },{
+      index: 'internal',
+      title: 'Thoughts',
+      type: 'string',
+      width: 300,
+      sortable: true
+      //height: 150
+      //flex: 2
     },{
       index: 'notes',
       title: 'Notes',
       type: 'string',
       width: 100,
-      height: 150
+      height: 150,
+      sortable: true
     },
 
     ]
