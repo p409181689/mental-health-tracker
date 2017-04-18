@@ -5,6 +5,7 @@ var nowEmotions=[];
 var emotionArray=[];
 var eventArray=[];
 var dayArray=[];
+var env;
 
 var Event = function(location, environment, company, internal, external, notes) {
 	
@@ -103,7 +104,7 @@ $(document).ready(function() {
             $('#last-emotion').html('<button class="emotion-buttons" id="added" value="">'+newEmotion+'</button>');
             console.log(newEmotion);
             $('#last-emotion').val(newEmotion);
-            console.log($('#last-emotion').val())
+            console.log($('#last-emotion').val());
             $('#added').addClass('emotion-picked');
             emotionArray.push($('#last-emotion').val());
 
@@ -123,26 +124,48 @@ $(document).ready(function() {
 		    emotionArray.push($(this).val());
 		});
 		 
-		console.log(emotionArray)
+		console.log(emotionArray);
 		localStorage.setItem('emotions', emotionArray);
-		window.location="trigger.html"
+		window.location="trigger.html";
     }); 
 
 //TRIGGERS
     $('#trigger-add').hide();
+    $('.environment-select').change(function() {
+         env = $('option:selected').val();
+        
+        if (env=="Other") {
+            $('#trigger-add').show().keyup(function() {
+                env=$('input[name=otherAdd]').val();
+                console.log(env);
+            });
+
+            
+        } else if (env=="Select") {
+            alert("Invalid Environment Option, please select from the choices below");
+        } else {
+
+        }
+        console.log("Value of env " + env);
+        return env;     
+        
+    });
+    
+            //var env=$('option:selected').val();//this could be a problem!
+        
+                
+                 
+
     $('#trigger-submit').click(function() {
     	var loc= $('input[name=location]').val();
     	
         //BROKEN
-        //$('.environment-select').click(function() {
-            var env=$('option:selected').val();//this could be a problem!
-            //if (env == "Other") {
-            //     $('#trigger-add').show();
-            //     env=('input[name=otherAdd]').val();
-            // } else if (env == "Select") {
+        
+             
+            // } else 
+            // if (env == "Select") {
             //     alert("Invalid Environment Option, please select from the choices below");
-            //     env=" "
-             //   window.location = "trigger.html";
+            // }     
             // } else {
 
             // }
