@@ -254,7 +254,7 @@ console.log("What is the current date: " + dayArray[0].date)
 var stupid = dayArray[0].date;
 var data = [
   //{name: 'Ted', surname: 'Smith', company: 'Electrical Systems', age: 30},
-  {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, triggers: dayArray[0].triggers}
+  {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, location: dayArray[0].triggers.location, }
   
 ];
 
@@ -277,12 +277,13 @@ $(function(){
       index: 'events',
       title: 'Emotions',
       type: 'string',
-      width: 200
+      width : 300
     },{
-      index: 'triggers',
-      title: 'Triggers',
+      index: 'location',
+      title: 'Location',
       type: 'string',
-      width: 400
+      width: 600,
+      height: 150
     }]
   });
 });
