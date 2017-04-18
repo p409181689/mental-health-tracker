@@ -74,6 +74,7 @@ $(document).ready(function() {
 		// nowTime=time;
 		// console.log(nowTime);
         value=$('#date').val();
+        console.log(value);
         localStorage.setItem('enterDate2', value);
 		localStorage.setItem('enterTime', time);
 
@@ -167,12 +168,10 @@ $(document).ready(function() {
     
 
      //VIEW
-     	if (localStorage.getItem('enterDate1') != ""){
-     		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "<p>");
-     	} else {
-     		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "<p>");
-     	}
      	
+     		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "</p>");
+            //$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "</p>");
+     	      console.log(localStorage.getItem('enterDate2'));
      	
     	$('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
     	//$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
@@ -186,7 +185,7 @@ $(document).ready(function() {
     	
     	//dateDisplayer();
     	emotionDisplayer();
-    	//eventDisplayer();
+    	
 
     	
     	//disploying functions - only one works
@@ -204,13 +203,7 @@ $(document).ready(function() {
     		
     		
     	}
-    	 function eventDisplayer() {
-    		displayObject = localStorage.getItem('events');
-    		displayObject=('displayObject: ', JSON.parse(displayObject));
-    		for(var key in displayObject) {
-    			$('#displayTriggers').html("<p> What Happened: "+ displayObject[key] + "<p>");
-    		}
-    	};
+    	 
 
  var Day = function(date, time, events, triggers) {
     this.date=date;
