@@ -12,12 +12,13 @@ body {
 }
 
 #main-body {
-
+	background-image: url("soothing-pic.jpg");
+	 background-repeat: no-repeat;
+	 background-size: cover;
 }
 
-.inputText {
-	color: rgb(123,140,157);
-
+#password{
+	margin-left: -5px;
 }
 button {
 	margin-left: auto;
@@ -28,10 +29,12 @@ h1 {
 }
 #mainbox {
 	width: 500px;
+	padding: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	border-style: double;
 	margin-top: 50px;
+	background-color: rgb(200,227,204);
 
 }
 
