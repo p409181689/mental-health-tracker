@@ -191,7 +191,7 @@ $(document).ready(function() {
     });
     
 
-     //VIEW
+     //VIEW-Old
      	
      // 		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "</p>");
      //        //$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "</p>");
@@ -265,46 +265,58 @@ var data = [
 
 $(function(){
   $('#container').FancyGrid({ 
-
+    
+    title: 'Quick View of Emotions',
+    renderTo: 'container',
+    width: '1000',
+    height: 400,
+    selModel: 'cell',
     width: 'fit',
     height: 'fit',
-    theme: 'bootstrap',
-    config: {
-    cellHeight: 500,
-    cellHeaderHeight: 500,
-    titleHeight: 100
-   
-  },
+    theme: {
+      name: 'bootstrap',
+      config: {
+        cellHeight: 92,
+        cellWidth: 100,
+        titleHeight: 65
+        
+      }
+},
+
     data: data,
     columns: [{
       index: 'day',      
       title: 'Date',
       type: 'string',
-      width: 100
+      width: 100,
+      sortable: true
     },{
       index: 'time',
       title: 'Time',
       type: 'string',
-      width: 100
+      width: 100,
+      sortable: true
     },{
       index: 'events',
       title: 'Emotions',
       type: 'string',
-      width : 200,
+      width : 250,
       sortable: true
     },{
       index: 'location',
       title: 'Location',
       type: 'string',
       width: 100,
-      sortable: true
+      sortable: true,
+      flex: 1
       
     },{
       index: 'environment',
       title: 'Environment',
       type: 'string',
       width: 100,
-      sortable: true
+      sortable: true,
+      
       
     },
     {
@@ -318,24 +330,25 @@ $(function(){
       index: 'external',
       title: 'External Factors',
       type: 'string',
-      width: 300,
-      sortable: true
+      width: 250,
+      sortable: true,
+      flex: 2
       
     },{
       index: 'internal',
       title: 'Thoughts',
       type: 'string',
       width: 300,
-      sortable: true
-      //height: 150
-      //flex: 2
+      sortable: true,
+      flex: 3
     },{
       index: 'notes',
       title: 'Notes',
       type: 'string',
       width: 100,
       height: 150,
-      sortable: true
+      sortable: true,
+      flex: 1
     },
 
     ]

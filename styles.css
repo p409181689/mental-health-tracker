@@ -1,3 +1,4 @@
+
 body {
 	background-color: rgb(200,227,204);
 	text-align:center;
@@ -10,6 +11,9 @@ body {
 	 line-height: 550%
 }
 
+#main-body {
+
+}
 
 .inputText {
 	color: rgb(123,140,157);
@@ -52,17 +56,3 @@ h1 {
 	font-size: 12px;
 }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    border: 1px solid #ddd;
-}
-
-th, td {
-    border: none;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
