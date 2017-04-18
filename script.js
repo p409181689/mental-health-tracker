@@ -4,6 +4,7 @@ var nowDate;
 var nowEmotions=[];
 var emotionArray=[];
 var eventArray=[];
+var dayArray=[];
 
 var Event = function(location, environment, company, internal, external, notes) {
 	
@@ -50,23 +51,19 @@ $(document).ready(function() {
 
 	       var value= $('#date').val(month + "/"  + day + "/"+ year);
 	       dateString=now.toDateString();
-	       console.log(dateString);
-	       console.log("Type: " +typeof(dateString));
+	   
 	       localStorage.setItem('enterDate1', dateString);
 
 
 	 });
-	//Check if jquery ui is loading
-// 	if (jQuery.ui) {
-//   		console.log("jquery ui success");
-// }
+	
 	 $(".timestamp input").click(function() {
 		var value = $( "#date" ).datepicker();
 		console.log(value);
 		value=value.toDateString;
 		console.log("Value type: " + typeof(value));
 		//nowDate=value;
-		localStorage.setItem('enterDate2', value);
+		localStorage.setItem('enterDate1', value);
 		
 		
 
@@ -76,7 +73,8 @@ $(document).ready(function() {
 		var time = $('option:selected').text();
 		// nowTime=time;
 		// console.log(nowTime);
-
+        value=$('#date').val();
+        localStorage.setItem('enterDate2', value);
 		localStorage.setItem('enterTime', time);
 
 		window.location="emotions.html";
@@ -135,19 +133,19 @@ $(document).ready(function() {
     	var loc= $('input[name=location]').val();
     	
         //BROKEN
-        $('.environment-select').click(function() {
+        //$('.environment-select').click(function() {
             var env=$('option:selected').val();//this could be a problem!
-            if (env == "Other") {
-                $('#trigger-add').show();
-                env=('input[name=otherAdd]').val();
-            } else if (env == "Select") {
-                alert("Invalid Environment Option, please select from the choices below");
-                env=" "
-                window.location = "trigger.html";
-            } else {
+            //if (env == "Other") {
+            //     $('#trigger-add').show();
+            //     env=('input[name=otherAdd]').val();
+            // } else if (env == "Select") {
+            //     alert("Invalid Environment Option, please select from the choices below");
+            //     env=" "
+             //   window.location = "trigger.html";
+            // } else {
 
-            }
-        })
+            // }
+        // })
     	
     	
     	var comp = $('input[name=company]').val();
@@ -214,14 +212,25 @@ $(document).ready(function() {
     		}
     	};
 
-    	$("#empty-storage").click(function() {
-    		localStorage.clear();
-    		window.location="timestamp.html";
-    	})
-    	
+ var Day = function(date, time, events, triggers) {
+    this.date=date;
+    this.time=time;
+    this.events=events;
+    this.triggers=triggers;
+}
+
+
+var day1=new Day (localStorage.getItem('enterDate1'), localStorage.getItem('enterTime'), localStorage.getItem('emotions'), localStorage.getItem('events'));
+dayArray.push(day1);
+
+ $("#empty-storage").click(function() {
+            //localStorage.clear();
+            window.location="timestamp.html";
+        })   	
     
 
 });
+
 
 
 // var xhr = new XMLHttpRequest();
