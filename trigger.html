@@ -16,8 +16,11 @@
 	<p>Now let's enter some info about what happened</p>
 	<form class="trigger-entry">
 			<p>Where are you?</p>
+			<div id = "dialog-1" 
+         title = "Location">You can enter any significant </div>
+      <button id = "opener">Open Dialog</button>
 			<input type="text" name="location" maxlength = "25" placeholder="ex. Friend's House">
-			<p>What type of enviroment are you in?</p>
+			<p>What type of enviroment are you in?<img src="qmark.png" class="qmark"></p>
 			<select class="environment-select">
 				<option value = "Select">Select One</option>
 				<option value="Home">Home</option>
@@ -27,21 +30,22 @@
 				<option value="Other" name="annoy">Other</option>
 				<div><p><input id="trigger-add" type='text' name='otherAdd'></p></div>
 			</select> 
-			<p>Who Were You With?</p>
+			<p>Who Were You With?<img src="qmark.png" class="qmark"></p>
 			<p id="who">If alone, please enter "alone"</p>
 			<input type="text" name="company" placeholder="ex. Mom">
-			<p>What Other External Factors Are Happening?</p>
+			<p>What Other External Factors Are Happening?<img src="qmark.png" class="qmark"></p>
 			<input type="text" name="external" placeholder="ex. Dog barking">
-			<p>What Thoughts Are You Having?</p>
+			<p>What Thoughts Are You Having?<img src="qmark.png" class="qmark"></p>
 			<input type="text" name="internal" placeholder="ex. Racing Thoughts">
-			<p>Other Notes</p>
+			<p>Other Notes<img src="qmark.png" class="qmark"></p>
 			<input type="text" name="notes">
 	</form>
 	
 		<button type="reset" class="clear-button">Clear</button>
 		<button type="submit" id="trigger-submit">Submit</button>
 		
-
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
 </body>
 </html>
