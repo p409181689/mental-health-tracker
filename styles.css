@@ -24,7 +24,7 @@ body {
 }
 
 #suicide-prevention{
-	
+
 }
 button {
 	margin-left: auto;
@@ -63,6 +63,11 @@ h1 {
 }
 #who {
 	font-size: 14px;
+}
+.qmark{
+	height: 18px;
+	margin-left: 2px;
+
 }
 .modal {
     display: none; /* Hidden by default */
