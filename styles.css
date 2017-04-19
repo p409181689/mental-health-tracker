@@ -2,6 +2,7 @@
 body {
 	background-color: rgb(200,227,204);
 	text-align:center;
+	font-family: 'Cabin', Helvetica, Arial, sans-serif;
 }
 .soothing {
 	background-image: url("soothing-pic.jpg");
@@ -9,6 +10,7 @@ body {
 	 background-size: cover;
 	 height: 100px;
 	 line-height: 550%
+
 }
 
 #main-body {
@@ -27,7 +29,7 @@ h1 {
 	font-family: 'Lobster', cursive;
 	font-size: 60px;
 }
-#mainbox {
+.mainbox {
 	width: 500px;
 	padding: 20px;
 	margin-left: auto;
