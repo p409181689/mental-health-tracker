@@ -18,6 +18,8 @@ var Event = function(location, environment, company, internal, external, notes) 
 	this.notes=notes;
 }
 $(document).ready(function(){
+    $('.mainbox').css({ opacity: 0.90 });
+    $('.inputText').removeClass('mainbox');
     $("#login").click(function(){
        var login=$("#username").val();
        var pswd=$("#password").val();
@@ -258,9 +260,9 @@ console.log("This is stupid: " + stupid);
 var data = [
   //{name: 'Ted', surname: 'Smith', company: 'Electrical Systems', age: 30},
   {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, location: stupid[0].location , environment: stupid[0].environment , company: stupid[0].company,internal: stupid[0].internal, external: stupid[0].external, notes: stupid[0].notes},
-   {day: "4/10/17", time: "Morning" , events: "Happy, Excited" , location: "South Lyon" , environment: "Home" , company: "Alone" , internal: "Cuddling puppies is nice" , external: "Quiet House" , notes: "NA" },
-   {day: "4/09/17", time: "Evening" , events: "Tired, Upset" , location: "Comerica Park", environment: "Baseball stadium" , company: "Large crowd" , internal: "WHY SPORTSBALL" , external: "Crowd Noise" , notes: "SPORTSBALLLLL!" },
-  {day: "4/08/17", time: "Afternoon" , events: "Stressed" , location: "South Lyon", environment: "Home" , company: "Alone" , internal: "Cleaning is taking too long" , external: "Ella barking" , notes: "NA" }
+   {day: "4/10/2017", time: "Morning" , events: "Happy,Excited" , location: "South Lyon" , environment: "Home" , company: "Alone" , internal: "Cuddling puppies is nice" , external: "Quiet House" , notes: "NA" },
+   {day: "4/09/2017", time: "Evening" , events: "Tired,Upset" , location: "Comerica Park", environment: "Baseball stadium" , company: "Large crowd" , internal: "WHY SPORTSBALL" , external: "Crowd Noise" , notes: "SPORTSBALLLLL!" },
+  {day: "4/08/2017", time: "Afternoon" , events: "Stressed" , location: "South Lyon", environment: "Home" , company: "Alone" , internal: "Cleaning is taking too long" , external: "Ella barking" , notes: "NA" }
 ];
 
 $(function(){
@@ -294,7 +296,7 @@ $(function(){
       index: 'time',
       title: 'Time',
       type: 'string',
-      width: 100,
+      width: 98,
       sortable: true
     },{
       index: 'events',
@@ -306,7 +308,7 @@ $(function(){
       index: 'location',
       title: 'Location',
       type: 'string',
-      width: 100,
+      width: 200,
       sortable: true,
       flex: 1
       
@@ -314,7 +316,7 @@ $(function(){
       index: 'environment',
       title: 'Environment',
       type: 'string',
-      width: 100,
+      width: 200,
       sortable: true,
       
       
@@ -323,14 +325,14 @@ $(function(){
       index: 'company',
       title: 'Company',
       type: 'string',
-      width: 100,
+      width: 95,
       sortable: true
       
     },{
       index: 'external',
       title: 'External Factors',
       type: 'string',
-      width: 250,
+      width: 200,
       sortable: true,
       flex: 2
       
