@@ -18,7 +18,7 @@ var Event = function(location, environment, company, internal, external, notes) 
 	this.notes=notes;
 }
 $(document).ready(function(){
-    $('.mainbox').css({ opacity: 0.90 });
+    $('.mainbox').css({ opacity: 0.95 });
     $('.inputText').removeClass('mainbox');
     $("#login").click(function(){
        var login=$("#username").val();
@@ -282,7 +282,7 @@ $(function(){
         cellWidth: 100,
         titleHeight: 65
         
-      }
+      },
 },
 
     data: data,
@@ -290,14 +290,16 @@ $(function(){
       index: 'day',      
       title: 'Date',
       type: 'string',
-      width: 100,
-      sortable: true
+      width: 95,
+      sortable: true,
+      resizable: true
     },{
       index: 'time',
       title: 'Time',
       type: 'string',
-      width: 98,
-      sortable: true
+      width: 95,
+      sortable: true,
+      esizable: true
     },{
       index: 'events',
       title: 'Emotions',
@@ -316,7 +318,7 @@ $(function(){
       index: 'environment',
       title: 'Environment',
       type: 'string',
-      width: 200,
+      width: 185,
       sortable: true,
       
       
@@ -332,7 +334,7 @@ $(function(){
       index: 'external',
       title: 'External Factors',
       type: 'string',
-      width: 200,
+      width: 175,
       sortable: true,
       flex: 2
       
@@ -340,7 +342,7 @@ $(function(){
       index: 'internal',
       title: 'Thoughts',
       type: 'string',
-      width: 300,
+      width: 200,
       sortable: true,
       flex: 3
     },{
@@ -359,12 +361,12 @@ $(function(){
 
 //GET https://api.fitbit.com/1/user/-/profile.json
 
-//curl -i -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyV1JYNjgiLCJhdWQiOiIyMjg4WTUiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc2xlIiwiZXhwIjoxNDkzMTcwNjgxLCJpYXQiOjE0OTI1NjU4ODF9.QCQLmVC2Mbrndq6JMn06jOH9LdjsbolLLYuBYvVNlAQ" https://api.fitbit.com/1/user/-/profile.json
- var xhr = new XMLHttpRequest();
+// //curl -i -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyV1JYNjgiLCJhdWQiOiIyMjg4WTUiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc2xlIiwiZXhwIjoxNDkzMTcwNjgxLCJpYXQiOjE0OTI1NjU4ODF9.QCQLmVC2Mbrndq6JMn06jOH9LdjsbolLLYuBYvVNlAQ" https://api.fitbit.com/1/user/-/profile.json
+//  var xhr = new XMLHttpRequest();
 
 
- xhr.open("GET", "https://api.fitbit.com/1/user/-/profile.json", Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MzAzNDM3MzUsInNjb3BlcyI6Indwcm8gd2xvYyB3bnV0IHdzbGUgd3NldCB3aHIgd3dlaSB3YWN0IHdzb2MiLCJzdWIiOiJBQkNERUYiLCJhdWQiOiJJSktMTU4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE0MzAzNDAxMzV9.z0VHrIEzjsBnjiNMBey6wtu26yHTnSWz_qlqoEpUlpc
-);
+//  xhr.open("GET", "https://api.fitbit.com/1/user/-/profile.json", Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MzAzNDM3MzUsInNjb3BlcyI6Indwcm8gd2xvYyB3bnV0IHdzbGUgd3NldCB3aHIgd3dlaSB3YWN0IHdzb2MiLCJzdWIiOiJBQkNERUYiLCJhdWQiOiJJSktMTU4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE0MzAzNDAxMzV9.z0VHrIEzjsBnjiNMBey6wtu26yHTnSWz_qlqoEpUlpc
+// );
 // // Add your code below!
 // xhr.send();
 // console.log(xhr.status);
