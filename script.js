@@ -137,22 +137,22 @@ $(document).ready(function() {
 if (jQuery.ui) {
   console.log("ui loaded");
 }
-    $(function() {
-            $( "#dialog" ).dialog({
-                  autoOpen: false,
-                  show: {
-                    effect: "blind", 
-                    duration: 1000
-                  },
-                  hide: {
-                    effect: "explode",
-                    duration: 1000
-                  }
+   
+    $( "#dialog" ).dialog({
+                  appendTo: "#opener",
+                    autoOpen: false,
+                   modal:true
+                }); 
+    // Getter
+var autoOpen = $( "#dialog" ).dialog( "option", "autoOpen" );
+ 
+// Setter
+$( "#dialog" ).dialog( "option", "autoOpen", false );
+
+    $( "#opener" ).click(function() {
+                   $( "#dialog" ).dialog( "open" );
                 });
-            $( '#opener' ).click(function() {
-               $( '#dialog' ).dialog( 'open' );
-            });
-         });
+   
     
 
     $('#trigger-add').hide();
