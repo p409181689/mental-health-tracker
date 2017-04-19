@@ -118,7 +118,8 @@ $(document).ready(function() {
     });
 
 	$('#clear-button2').click(function() {	
-		$('.emotion-picked').removeClass();
+		$('.emotion-picked').removeClass('emotion-picked');
+        emotionArray=[];
 	
 	});
 	$('#emotion-submit').click(function() { 
@@ -133,6 +134,27 @@ $(document).ready(function() {
     }); 
 
 //TRIGGERS
+if (jQuery.ui) {
+  console.log("ui loaded");
+}
+    $(function() {
+            $( "#dialog" ).dialog({
+                  autoOpen: false,
+                  show: {
+                    effect: "blind", 
+                    duration: 1000
+                  },
+                  hide: {
+                    effect: "explode",
+                    duration: 1000
+                  }
+                });
+            $( '#opener' ).click(function() {
+               $( '#dialog' ).dialog( 'open' );
+            });
+         });
+    
+
     $('#trigger-add').hide();
     $('.environment-select').change(function() {
          env = $('option:selected').val();
@@ -249,7 +271,10 @@ $(document).ready(function() {
 
 var day1=new Day (localStorage.getItem('enterDate2'), localStorage.getItem('enterTime'), localStorage.getItem('emotions'), localStorage.getItem('events'));
 dayArray.push(day1);
-//localStorage.setItem('array', dayArray);
+
+//stringify the array set to local storage
+//use eval if a for loop doesn't work - can use to make dynamic variables
+localStorage.setItem('array', dayArray);
 
  
 
@@ -257,7 +282,8 @@ console.log("What is the current date: " + dayArray[0].date)
 var stupid = localStorage.getItem('events');
 stupid = ('stupid: ', JSON.parse(stupid));
 console.log("This is stupid: " + stupid);
-var data = [
+
+ data = [
   //{name: 'Ted', surname: 'Smith', company: 'Electrical Systems', age: 30},
   {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, location: stupid[0].location , environment: stupid[0].environment , company: stupid[0].company,internal: stupid[0].internal, external: stupid[0].external, notes: stupid[0].notes},
    {day: "4/10/2017", time: "Morning" , events: "Happy,Excited" , location: "South Lyon" , environment: "Home" , company: "Alone" , internal: "Cuddling puppies is nice" , external: "Quiet House" , notes: "NA" },
