@@ -46,17 +46,17 @@ $(document).ready(function(){
 });
 
 //TIMESTAMP
-$(document).ready(function() {
-	$('#now').click(function() {
-	        var now = new Date();
-	        var month = now.getMonth()+1;
-	        var day = now.getDate();
-	        var year = now.getUTCFullYear();
+    $(document).ready(function() {
+    	$('#now').click(function() {
+    	        var now = new Date();
+    	        var month = now.getMonth()+1;
+    	        var day = now.getDate();
+    	        var year = now.getUTCFullYear();
 
-	       var value= $('#date').val(month + "/"  + day + "/"+ year);
-	       dateString=now.toDateString();
-	   
-	       localStorage.setItem('enterDate1', dateString);
+    	       var value= $('#date').val(month + "/"  + day + "/"+ year);
+    	       dateString=now.toDateString();
+    	   
+    	       localStorage.setItem('enterDate1', dateString);
 
 
 	 });
@@ -96,7 +96,8 @@ $(document).ready(function() {
 //EMOTIONS
 	$('.emotion-buttons').on('click',function(){
      $(this).toggleClass('emotion-picked');
-});
+        });
+
     $('.hide-emotion').hide();
 
     $('#add-emotion').click(function() {
@@ -118,9 +119,11 @@ $(document).ready(function() {
     });
 
 	$('#clear-button2').click(function() {	
-		$('.emotion-picked').removeClass();
+		$('.emotion-picked').removeClass('emotion-picked');
+        emotionArray=[];
 	
 	});
+
 	$('#emotion-submit').click(function() { 
         
         $(".emotion-picked").each(function() {
@@ -156,10 +159,11 @@ $(document).ready(function() {
     
             //var env=$('option:selected').val();//this could be a problem!
         
-                
+               
                  
 
     $('#trigger-submit').click(function() {
+        
     	var loc= $('input[name=location]').val();
     	
         //BROKEN
@@ -252,7 +256,7 @@ dayArray.push(day1);
 //localStorage.setItem('array', dayArray);
 
  
-
+//Table scripting
 console.log("What is the current date: " + dayArray[0].date)
 var stupid = localStorage.getItem('events');
 stupid = ('stupid: ', JSON.parse(stupid));
