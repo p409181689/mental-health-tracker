@@ -357,18 +357,21 @@ $(function(){
   });
 });
 
-// var xhr = new XMLHttpRequest();
-// //"https://https://www.fitbit.com/oauth2/authorize/auth?response_type=code&client_id=2288Y5&redirect_uri=trigger.html&scope=photos&state=1234zyx"
+//GET https://api.fitbit.com/1/user/-/profile.json
+
+//curl -i -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyV1JYNjgiLCJhdWQiOiIyMjg4WTUiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc2xlIiwiZXhwIjoxNDkzMTcwNjgxLCJpYXQiOjE0OTI1NjU4ODF9.QCQLmVC2Mbrndq6JMn06jOH9LdjsbolLLYuBYvVNlAQ" https://api.fitbit.com/1/user/-/profile.json
+ var xhr = new XMLHttpRequest();
 
 
-// xhr.open("GET", "https://api.fitbit.com/1.2/user/-/sleep/date/2017-04-17.json", false);
+ xhr.open("GET", "https://api.fitbit.com/1/user/-/profile.json", Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MzAzNDM3MzUsInNjb3BlcyI6Indwcm8gd2xvYyB3bnV0IHdzbGUgd3NldCB3aHIgd3dlaSB3YWN0IHdzb2MiLCJzdWIiOiJBQkNERUYiLCJhdWQiOiJJSktMTU4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE0MzAzNDAxMzV9.z0VHrIEzjsBnjiNMBey6wtu26yHTnSWz_qlqoEpUlpc
+);
 // // Add your code below!
 // xhr.send();
 // console.log(xhr.status);
 // console.log(xhr.statusText);
 
 
-//curl -i -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyV1JYNjgiLCJhdWQiOiIyMjg4WTUiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc2xlIiwiZXhwIjoxNDkzMDc3NTgxLCJpYXQiOjE0OTI0NzI4NTJ9.NHfYFbVV2Sj7RcG-ZfZhfWUUurjDTvc8ecrlY5bsmj4" https://api.fitbit.com/1/user/-/profile.json
+
 
 
 
