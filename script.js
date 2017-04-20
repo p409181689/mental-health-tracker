@@ -274,10 +274,10 @@ $(function(){
     
     title: 'Emotion Tracker',
     renderTo: 'container',
-    width: 1500,
+    width: 1000,
     height: 'fit',
     selModel: 'cell',
-    // width: 'fit',
+     //width: 'fit',
     // height: 'fit',
 
     theme: {
