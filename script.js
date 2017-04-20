@@ -274,17 +274,16 @@ $(function(){
     
     title: 'Emotion Tracker',
     renderTo: 'container',
-    //width: '1000',
-    //height: 400,
-    //selModel: 'cell',
-    width: 'fit',
+    width: 1500,
     height: 'fit',
+    selModel: 'cell',
+    // width: 'fit',
+    // height: 'fit',
 
     theme: {
       name: 'bootstrap',
       config: {
         cellHeight: 92,
-        
         titleHeight: 65
         
       },
@@ -358,7 +357,7 @@ $(function(){
       sortable: true,
       resizable: true,
       editable: true,
-      flex:1
+      
       
     },
 
