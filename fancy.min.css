@@ -11,6 +11,7 @@ Build: 1.5.11
 	font-size: 14px;
 	font-weight: 700;
 	line-height: 14px
+	
 }
 .fancy input {
 	-webkit-appearance: none;
@@ -330,7 +331,7 @@ Build: 1.5.11
 	font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
 	font-size: 11px;
 	position: relative;
-	margin-left: 15px;
+	/*margin-left: 100px;*/
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	-ms-border-radius: 0;
@@ -342,13 +343,12 @@ Build: 1.5.11
 	cursor: default;
 	position: relative;
 	/*overflow: hidden;*/
-	text-wrap:normal;
 	border: 1px solid transparent;
 	background: #048DC8;
 	color: rgba(255, 255, 255, .85);
 	font-size: 32px;
 	font-weight: 500;
-	font-family: gn, roboto, 'open sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
+	font-family: 'Cabin', Helvetica, Arial, sans-serif;
 }
 .fancy-panel .fancy-panel-header-text {
 	font-weight: 700;
@@ -357,8 +357,8 @@ Build: 1.5.11
 }
 .fancy-panel .fancy-panel-body {
 	background-color: #fff;
-	/*overflow: hidden;*/
-	text-wrap:normal;
+	overflow: hidden;
+	
 	border: 2px solid #1e8fc6
 }
 .fancy-panel .fancy-panel-bbar {
