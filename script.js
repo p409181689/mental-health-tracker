@@ -265,25 +265,26 @@ var data = [
   //{name: 'Ted', surname: 'Smith', company: 'Electrical Systems', age: 30},
   {day: dayArray[0].date, time: dayArray[0].time , events: dayArray[0].events, location: stupid[0].location , environment: stupid[0].environment , company: stupid[0].company,internal: stupid[0].internal, external: stupid[0].external, notes: stupid[0].notes},
    {day: "4/10/2017", time: "Morning" , events: "Happy,Excited" , location: "South Lyon" , environment: "Home" , company: "Alone" , internal: "Cuddling puppies is nice" , external: "Quiet House" , notes: "NA" },
-   {day: "4/09/2017", time: "Evening" , events: "Tired,Upset" , location: "Comerica Park", environment: "Baseball stadium" , company: "Large crowd" , internal: "WHY SPORTSBALL" , external: "Crowd Noise" , notes: "SPORTSBALLLLL!" },
+   {day: "4/09/2017", time: "Evening" , events: "Tired,Upset" , location: "Comerica Park", environment: "Baseball stadium" , company: "Large crowd" , internal: "WHY SPORTSBALL!" , external: "Crowd Noise" , notes: "SPORTS!" },
   {day: "4/08/2017", time: "Afternoon" , events: "Stressed" , location: "South Lyon", environment: "Home" , company: "Alone" , internal: "Cleaning is taking too long" , external: "Ella barking" , notes: "NA" }
 ];
 
 $(function(){
   $('#container').FancyGrid({ 
     
-    title: 'Quick View of Emotions',
+    title: 'Emotion Tracker',
     renderTo: 'container',
-    width: '1000',
-    height: 400,
-    selModel: 'cell',
+    //width: '1000',
+    //height: 400,
+    //selModel: 'cell',
     width: 'fit',
     height: 'fit',
+
     theme: {
       name: 'bootstrap',
       config: {
         cellHeight: 92,
-        cellWidth: 100,
+        
         titleHeight: 65
         
       },
@@ -303,7 +304,7 @@ $(function(){
       type: 'string',
       width: 95,
       sortable: true,
-      esizable: true
+      resizable: true
     },{
       index: 'events',
       title: 'Emotions',
@@ -340,7 +341,7 @@ $(function(){
       type: 'string',
       width: 175,
       sortable: true,
-      flex: 2
+      
       
     },{
       index: 'internal',
@@ -348,33 +349,23 @@ $(function(){
       type: 'string',
       width: 200,
       sortable: true,
-      flex: 3
+      
     },{
       index: 'notes',
       title: 'Notes',
       type: 'string',
-      width: 100,
-      height: 150,
+      width: 150,
       sortable: true,
-      flex: 1
+      resizable: true,
+      editable: true,
+      flex:1
+      
     },
 
     ]
   });
 });
 
-//GET https://api.fitbit.com/1/user/-/profile.json
-
-// //curl -i -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyV1JYNjgiLCJhdWQiOiIyMjg4WTUiLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJzY29wZXMiOiJyc2xlIiwiZXhwIjoxNDkzMTcwNjgxLCJpYXQiOjE0OTI1NjU4ODF9.QCQLmVC2Mbrndq6JMn06jOH9LdjsbolLLYuBYvVNlAQ" https://api.fitbit.com/1/user/-/profile.json
-//  var xhr = new XMLHttpRequest();
-
-
-//  xhr.open("GET", "https://api.fitbit.com/1/user/-/profile.json", Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE0MzAzNDM3MzUsInNjb3BlcyI6Indwcm8gd2xvYyB3bnV0IHdzbGUgd3NldCB3aHIgd3dlaSB3YWN0IHdzb2MiLCJzdWIiOiJBQkNERUYiLCJhdWQiOiJJSktMTU4iLCJpc3MiOiJGaXRiaXQiLCJ0eXAiOiJhY2Nlc3NfdG9rZW4iLCJpYXQiOjE0MzAzNDAxMzV9.z0VHrIEzjsBnjiNMBey6wtu26yHTnSWz_qlqoEpUlpc
-// );
-// // Add your code below!
-// xhr.send();
-// console.log(xhr.status);
-// console.log(xhr.statusText);
 
 
 
