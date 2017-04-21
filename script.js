@@ -271,13 +271,13 @@ var data = [
 
 $(function(){
   $('#container').FancyGrid({ 
-    
+    //set to tv screen settings - also check the container div in styles.css and delete if need be
     title: 'Emotion Tracker',
     renderTo: 'container',
-    width: 1030,
+    //width: 9000,
     height: 'fit',
     selModel: 'cell',
-     //width: 'fit',
+     width: 'fit',
     // height: 'fit',
 
     theme: {
@@ -294,14 +294,14 @@ $(function(){
       index: 'day',      
       title: 'Date',
       type: 'string',
-      width: 90,
+      width: 100,
       sortable: true,
       resizable: true
     },{
       index: 'time',
       title: 'Time',
       type: 'string',
-      width: 90,
+      width: 100,
       sortable: true,
       resizable: true
     },{
@@ -314,7 +314,7 @@ $(function(){
       index: 'location',
       title: 'Location',
       type: 'string',
-      width: 185,
+      width: 200,
       sortable: true,
       flex: 1
       
@@ -322,7 +322,7 @@ $(function(){
       index: 'environment',
       title: 'Environment',
       type: 'string',
-      width: 185,
+      width: 200,
       sortable: true,
       
       
@@ -331,14 +331,14 @@ $(function(){
       index: 'company',
       title: 'Company',
       type: 'string',
-      width: 90,
+      width: 200,
       sortable: true
       
     },{
       index: 'external',
       title: 'External Factors',
       type: 'string',
-      width: 170,
+      width: 200,
       sortable: true,
       
       
@@ -346,14 +346,14 @@ $(function(){
       index: 'internal',
       title: 'Thoughts',
       type: 'string',
-      width: 185,
+      width: 250,
       sortable: true,
       
     },{
       index: 'notes',
       title: 'Notes',
       type: 'string',
-      width: 150,
+      width: 250,
       sortable: true,
       resizable: true,
       editable: true,
