@@ -274,7 +274,7 @@ $(function(){
     
     title: 'Emotion Tracker',
     renderTo: 'container',
-    width: 1000,
+    width: 1030,
     height: 'fit',
     selModel: 'cell',
      //width: 'fit',
@@ -294,27 +294,27 @@ $(function(){
       index: 'day',      
       title: 'Date',
       type: 'string',
-      width: 95,
+      width: 90,
       sortable: true,
       resizable: true
     },{
       index: 'time',
       title: 'Time',
       type: 'string',
-      width: 95,
+      width: 90,
       sortable: true,
       resizable: true
     },{
       index: 'events',
       title: 'Emotions',
       type: 'string',
-      width : 250,
+      width : 200,
       sortable: true
     },{
       index: 'location',
       title: 'Location',
       type: 'string',
-      width: 200,
+      width: 185,
       sortable: true,
       flex: 1
       
@@ -331,14 +331,14 @@ $(function(){
       index: 'company',
       title: 'Company',
       type: 'string',
-      width: 95,
+      width: 90,
       sortable: true
       
     },{
       index: 'external',
       title: 'External Factors',
       type: 'string',
-      width: 175,
+      width: 170,
       sortable: true,
       
       
@@ -346,7 +346,7 @@ $(function(){
       index: 'internal',
       title: 'Thoughts',
       type: 'string',
-      width: 200,
+      width: 185,
       sortable: true,
       
     },{
