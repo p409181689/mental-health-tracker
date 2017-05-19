@@ -1,3 +1,7 @@
+key = config.MY_KEY;
+database = config.databaseURL;
+storageBucket = config.storageBucket;
+
 
 var nowTime;
 var nowDate;

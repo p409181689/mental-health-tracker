@@ -1,3 +1,4 @@
+config.jsc
 .*
 !.gitignore
 # ignore all logs
