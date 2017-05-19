@@ -20,9 +20,6 @@ body {
 	 background-size: cover;
 }
 
-#password{
-	margin-left: -5px;
-}
 
 button {
 	margin-left: auto;
@@ -42,6 +39,10 @@ h1 {
 
 }
 
+#container {
+	text-align: center;
+	margin-left: auto;
+}
 .timebuttons {
 	margin-top: 15px;
 	font-size: 16px;

@@ -1,6 +1,6 @@
-key = config.MY_KEY;
-database = config.databaseURL;
-storageBucket = config.storageBucket;
+var key = config.MY_KEY;
+var database = config.databaseURL;
+var storageBucket = config.storageBucket;
 
 
 var nowTime;
@@ -24,29 +24,7 @@ var Event = function(location, environment, company, internal, external, notes) 
 $(document).ready(function(){
     $('.mainbox').css({ opacity: 0.95 });
     $('.inputText').removeClass('mainbox');
-    $("#login").click(function(){
-       var login=$("#username").val();
-       var pswd=$("#password").val();
-		
-		var userName = "Maryla";
- 		var password= "Rodowicz1";
-
-		if (login==userName && pswd==password) {
-			$('#link-hide').hide();
-			$('#login-alert').html("success").fadeIn();
-			window.location="timestamp.html";
-			return false;
-			
-		} else if (login==='' || pswd===''){
-		    $('#login-alert').html("<strong>Warning!</strong> You left a field empty");
-		    return false;
-   
-		} else {
-			$('#login-alert').html("Something went wrong, try again");
-			return false;
-		}
-				
-    });
+  
 });
 
 //TIMESTAMP
@@ -201,42 +179,7 @@ $(document).ready(function(){
     });
     
 
-     //VIEW-Old
-     	
-     // 		$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate2') + "</p>");
-     //        //$('#displayDay').html("<p> Date: "+ localStorage.getItem('enterDate1') + "</p>");
-     // 	      console.log(localStorage.getItem('enterDate2'));
-     	
-    	// $('#displayTime').html("<p> Time: "+ localStorage.getItem('enterTime') + "<p>");
-    	// //$('#displayEmotions').html("<p> You felt: " + localStorage.getItem('emotions') + "<p>")
-    	
-    	// displayedObject=localStorage.getItem('events');
-    	// displayedObject=('displayedObject: ', JSON.parse(displayedObject));
-    	
-    	// $('#displayTriggers').append("<p> Where I was "+ displayedObject[0].location + "</p>" + "<p> At:" + 
-    	// 	displayedObject[0].environment + "</p>" +"<p> With:" + displayedObject[0].company + "</p>" + "<p> Thoughts:" + displayedObject[0].internal + "</p>"
-    	// 	+ "<p> Other Factors:" + displayedObject[0].external + "</p>" +"<p> Notes:" + displayedObject[0].notes + "</p>");
-    	
-    	// //dateDisplayer();
-    	// emotionDisplayer();
-    	
-
-    	
-    	// //disploying functions - only one works
-    	// function emotionDisplayer() {
-    	// 	emotionDisplay = localStorage.getItem('emotions').split(',');
-     //        $('#displayEmotions').html("<p> I felt: " + emotionDisplay[0] + "</p>")
-
-     //        console.log(emotionDisplay);
-     //        for(i=1; i<emotionDisplay.length; i++) {
-     //            $('#displayEmotions').append("<p>" + emotionDisplay[i] + "</p>");
-     //        }
-            
-
-    		
-    		
-    		
-    	// }
+     
 
         $("#empty-storage").click(function() {
             //localStorage.clear();
@@ -259,6 +202,12 @@ var day1=new Day (localStorage.getItem('enterDate2'), localStorage.getItem('ente
 dayArray.push(day1);
 //localStorage.setItem('array', dayArray);
 
+ref.push({
+          date: localStorage.getItem('enterDate2'),
+          time: localStorage.getItem('enterTime'),
+          emotions: localStorage.getItem('emotions'),
+          events: localStorage.getItem('events')
+        })
  
 //Table scripting
 console.log("What is the current date: " + dayArray[0].date)

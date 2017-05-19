@@ -7,7 +7,37 @@
 	<link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type='text/javascript' src='config.js'></script>
 	<script src="script.js"></script>
+	<script src="/__/firebase/3.9.0/firebase-app.js"></script>
+		<script src="/__/firebase/3.9.0/firebase-auth.js"></script>
+		<script src="/__/firebase/3.9.0/firebase-database.js"></script>
+	<script>
+	var config = {
+    apiKey: key,
+    authDomain: "mental-healthier.firebaseapp.com",
+    databaseURL: database,
+    projectId: "mental-healthier",
+    storageBucket: storageBucket,
+    messagingSenderId: "778809643853"
+  };
+  firebase.initializeApp(config);
+  
+	function signOut() {
+				firebase.auth().signOut().then(function() {
+					// Sign-out successful.
+					window.location = "index.html";
+				}).catch(function(error) {
+						// An error happened.
+				});
+			}	
+			function init() {
+				document.getElementById("sign-out").addEventListener("click", signOut, false);
+			}
+			window.onload=function() {
+				init();
+			}
+			</script>
 </head>
 <body>
 	<div class="soothing">
